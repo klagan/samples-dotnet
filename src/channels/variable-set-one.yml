@@ -1,0 +1,5 @@
+variables:
+- name: kamtest
+  value: variable-set-one
+- name: configuration
+  value: debug

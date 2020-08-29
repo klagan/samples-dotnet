@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{EBC755D8-9B18-4E30-A5F1-FAA6D10FB54A}"
+ProjectSection(SolutionItems) = preProject
+	LICENSE = LICENSE
+	readme.md = readme.md
+	variable-set-one.yml = variable-set-one.yml
+	variable-set-two.yml = variable-set-two.yml
+	azure-pipelines.yml = azure-pipelines.yml
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7E3CD8D5-4811-45C3-B032-21E11A1D6002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Channels", "Sample.Channels.csproj", "{A2FD8037-A3C5-42A0-88DC-D60770150C4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2FD8037-A3C5-42A0-88DC-D60770150C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FD8037-A3C5-42A0-88DC-D60770150C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FD8037-A3C5-42A0-88DC-D60770150C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FD8037-A3C5-42A0-88DC-D60770150C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2FD8037-A3C5-42A0-88DC-D60770150C4C} = {7E3CD8D5-4811-45C3-B032-21E11A1D6002}
+	EndGlobalSection
+EndGlobal

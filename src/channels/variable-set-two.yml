@@ -1,0 +1,5 @@
+variables:
+- name: kamtest        
+  value: variable-set-two
+- name: configuration        
+  value: release
