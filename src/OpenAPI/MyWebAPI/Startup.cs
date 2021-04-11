@@ -127,11 +127,24 @@ namespace MyWebAPI
                     });
 
 
+                // TODO: generic version
+                // foreach (var filePath in System.IO.Directory.GetFiles(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)), "*.xml"))
+                // {
+                //     try
+                //     {
+                //         c.IncludeXmlComments(filePath);
+                //     }
+                //     catch (Exception e)
+                //     {
+                //         Console.WriteLine(e);
+                //     }
+                // }
+                
                 // include the code xml documentation (added at design time to project properties - use relative path not absolute)
                 var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
 
-                // TODO: make more generic
+                // TODO: make more generic (see above)
                 var xmlCommentsWeatherModelsFullPath = Path.Combine(AppContext.BaseDirectory, "MyWeather.Models.xml");
                 
                 // instruct openapi to use xml documentation in openapi documentation
