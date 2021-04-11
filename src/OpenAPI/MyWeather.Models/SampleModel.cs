@@ -1,7 +1,7 @@
-namespace MyWebAPI.Models
-{
-    using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
+namespace MyWeather.Models
+{
     /// <summary>
     /// My sample description
     /// </summary>

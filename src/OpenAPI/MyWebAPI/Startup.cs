@@ -36,31 +36,33 @@ namespace MyWebAPI
                         new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
 
                     // TODO: causing response errors when accept header is test/plain
-                    // setupAction.Filters.Add(
-                    //     new ProducesDefaultResponseTypeAttribute());
-            
+                    setupAction.Filters.Add(
+                        new ProducesDefaultResponseTypeAttribute());
+
                     setupAction.ReturnHttpNotAcceptable = true;
                     setupAction.RespectBrowserAcceptHeader = true;
-            
+
                     // add an XML formatter to the output types openapi documentation
                     setupAction.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-            
+
                     // find the JSON outputter if it exists
                     var jsonOutputFormatter = setupAction.OutputFormatters
                         .OfType<SystemTextJsonOutputFormatter>()
                         .FirstOrDefault();
-            
+
                     if (jsonOutputFormatter == null) return;
-                    
+
                     // remove text/json as it isn't the approved media type for working with JSON at API level
                     if (jsonOutputFormatter.SupportedMediaTypes.Contains("text/json"))
                     {
                         jsonOutputFormatter.SupportedMediaTypes.Remove("text/json");
                     }
+                    
+                    // remove text/plain as a default
+                    setupAction.OutputFormatters.RemoveType<StringOutputFormatter>();
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Latest);
             
-                        
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 // if a mal-formed input model is created then return 406 to indicate this
@@ -79,7 +81,8 @@ namespace MyWebAPI
                 };
             });
             
-            // services.AddControllers();
+            services.AddTransient(typeof(MyWeather.Bll.Compute));
+            services.AddTransient(typeof(MyUserName.Bll.Compute));
             
             services.AddSwaggerGen(setupAction =>
             {
@@ -127,9 +130,13 @@ namespace MyWebAPI
                 // include the code xml documentation (added at design time to project properties - use relative path not absolute)
                 var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+
+                // TODO: make more generic
+                var xmlCommentsWeatherModelsFullPath = Path.Combine(AppContext.BaseDirectory, "MyWeather.Models.xml");
                 
                 // instruct openapi to use xml documentation in openapi documentation
                 setupAction.IncludeXmlComments(xmlCommentsFullPath);
+                setupAction.IncludeXmlComments(xmlCommentsWeatherModelsFullPath);
             });
         }
 

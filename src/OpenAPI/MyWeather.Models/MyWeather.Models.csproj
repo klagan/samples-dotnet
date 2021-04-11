@@ -1,26 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.2" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\MyUserName.Bll\MyUserName.Bll.csproj" />
-      <ProjectReference Include="..\MyWeather.Bll\MyWeather.Bll.csproj" />
-    </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <DocumentationFile>bin\Debug\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
         <NoWarn>1591</NoWarn>
         <GenerateProgramFile>false</GenerateProgramFile>
     </PropertyGroup>
-    
+
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DocumentationFile>bin\Release\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
     </PropertyGroup>
-    
+
 </Project>

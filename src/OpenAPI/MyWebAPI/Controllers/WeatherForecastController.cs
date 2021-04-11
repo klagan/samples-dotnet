@@ -1,26 +1,23 @@
 ﻿namespace MyWebAPI.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using Models;
+    using MyWeather.Bll;
+    using MyWeather.Models;
 
-    [ApiController][ApiExplorerSettings(GroupName = "MyWeatherAPI")]
+
+    [ApiController]
+    [ApiExplorerSettings(GroupName = "MyWeatherAPI")]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly Compute _weatherForecastCompute;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, Compute weatherForecastCompute)
         {
             _logger = logger;
+            _weatherForecastCompute = weatherForecastCompute;
         }
 
         /// <summary>
@@ -28,16 +25,9 @@
         /// </summary>
         /// <returns>Sample return description</returns>
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IActionResult Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-                {
-                    Date = DateTime.Now.AddDays(index),
-                    TemperatureC = rng.Next(-20, 55),
-                    Summary = Summaries[rng.Next(Summaries.Length)]
-                })
-                .ToArray();
+            return Ok(_weatherForecastCompute.Get());
         }
 
         /// <summary>
@@ -47,15 +37,21 @@
         /// <param name="someId">a sample ID property</param>
         /// <returns></returns>
         [HttpGet("SampleGet")]
-        public string SampleGet([FromQuery] SampleModel sampleModel, [FromQuery] int someId)
+        public IActionResult SampleGet([FromQuery] SampleModel sampleModel, [FromQuery] int someId)
         {
-            return $"{sampleModel.Id} => {sampleModel.Description} => {someId}";
+            return Ok($"{sampleModel.Id} => {sampleModel.Description} => {someId}");
         }
 
+        /// <summary>
+        /// A sample POST method
+        /// </summary>
+        /// <param name="sampleModel">a sample model value</param>
+        /// <param name="someId">a sample ID property</param>
+        /// <returns></returns>
         [HttpPost("SamplePost")]
-        public string SamplePost([FromBody] SampleModel sampleModel, [FromQuery] int someId)
+        public IActionResult SamplePost([FromBody] SampleModel sampleModel, [FromQuery] int someId)
         {
-            return $"{sampleModel.Id} => {sampleModel.Description} => {someId}";
+            return Ok($"{sampleModel.Id} => {sampleModel.Description} => {someId}");
         }
     }
 }
