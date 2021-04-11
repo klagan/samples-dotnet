@@ -13,14 +13,9 @@
       <ProjectReference Include="..\MyWeather.Bll\MyWeather.Bll.csproj" />
     </ItemGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <DocumentationFile>bin\Debug\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
+    <PropertyGroup>
+        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
         <NoWarn>1591</NoWarn>
-        <GenerateProgramFile>false</GenerateProgramFile>
-    </PropertyGroup>
-    
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <DocumentationFile>bin\Release\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
     </PropertyGroup>
     
 </Project>

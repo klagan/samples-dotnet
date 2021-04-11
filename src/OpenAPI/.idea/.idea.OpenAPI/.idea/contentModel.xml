@@ -30,7 +30,6 @@
       </e>
       <e p="MyWeather.Models" t="IncludeRecursive">
         <e p="MyWeather.Models.csproj" t="IncludeRecursive" />
-        <e p="MyWeatherModels.xml" t="Include" />
         <e p="SampleModel.cs" t="Include" />
         <e p="WeatherForecast.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
