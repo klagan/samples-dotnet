@@ -23,11 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c559d20-f26a-4ab1-a452-42822be54b43" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWeather.Models/MyWeather.Models.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MyWeather.Models/MyWeather.Models.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWeather.Models/MyWeatherModels.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWebAPI/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Controllers/WeatherForecastController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyWebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,10 +55,11 @@
         <option value="$PROJECT_DIR$/MyWebAPI/Models/WeatherForecast.cs" />
         <option value="$PROJECT_DIR$/MyUserName.Bll/Class1.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/UserNameController.cs" />
-        <option value="$PROJECT_DIR$/MyWebAPI/Controllers/WeatherForecastController.cs" />
-        <option value="$PROJECT_DIR$/MyWebAPI/Startup.cs" />
         <option value="$PROJECT_DIR$/MyWeather.Models/MyWeather.Models.csproj" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" />
+        <option value="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" />
+        <option value="$PROJECT_DIR$/MyWebAPI/Startup.cs" />
+        <option value="$PROJECT_DIR$/MyWebAPI/Controllers/WeatherForecastController.cs" />
       </list>
     </option>
   </component>
@@ -113,7 +112,7 @@
       <workItem from="1618047736762" duration="7078000" />
       <workItem from="1618129255267" duration="6376000" />
       <workItem from="1618136479556" duration="2176000" />
-      <workItem from="1618149916186" duration="5624000" />
+      <workItem from="1618149916186" duration="6752000" />
     </task>
     <task id="LOCAL-00001" summary="- add openapi example">
       <created>1618134291731</created>
@@ -143,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618154201999</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- add documentation files dynamically&#10;- generic documentation flags in .csproj">
+      <created>1618168649494</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1618168649494</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +174,8 @@
     <MESSAGE value="- commented out producesdefault filter as it is not playing nicely with text/plain" />
     <MESSAGE value="- split into multiple projects&#10;- multiple documentation files" />
     <MESSAGE value="- added some notes for future refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added some notes for future refactor" />
+    <MESSAGE value="- add documentation files dynamically&#10;- generic documentation flags in .csproj" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add documentation files dynamically&#10;- generic documentation flags in .csproj" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="196" width="1084" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618152616821">
@@ -183,22 +190,22 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="659" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1608.1023@72.27.1608.1023" timestamp="1618136088814" />
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1618168469079">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1618169577668">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1618168469079" />
-    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1618168469078">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1618169577668" />
+    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1618169577667">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1618168469078" />
-    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1618168469078">
+    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1618169577667" />
+    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1618169577667">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1618168469078" />
-    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1618168469079">
+    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1618169577667" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1618169577668">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1618168469079" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1618169577668" />
     <state width="1562" height="355" key="GridCell.Tab.1.bottom" timestamp="1618168279001">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
@@ -267,10 +274,14 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="471" y="273" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/72.27.1608.1023@72.27.1608.1023" timestamp="1618151069063" />
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1618154204147">
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1618168651525">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1618154204147" />
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1618168651525" />
+    <state x="486" y="153" width="770" height="778" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1618169358509">
+      <screen x="72" y="27" width="1608" height="1023" />
+    </state>
+    <state x="486" y="153" width="770" height="778" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1608.1023@72.27.1608.1023" timestamp="1618169358509" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -280,10 +291,10 @@
           <line>128</line>
           <properties documentPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" initialLine="131">
             <startOffsets>
-              <option value="5807" />
+              <option value="5801" />
             </startOffsets>
             <endOffsets>
-              <option value="5895" />
+              <option value="5889" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />

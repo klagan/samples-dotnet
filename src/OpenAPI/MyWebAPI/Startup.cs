@@ -88,18 +88,18 @@ namespace MyWebAPI
             {
                 setupAction.SwaggerDoc(
                     "MyWeatherAPI",
-                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    new Microsoft.OpenApi.Models.OpenApiInfo
                     {
                         Title = "My Weather API",
                         Version = "1",
                         Description = "My Weather API Sample",
-                        Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact
                         {
                             Email = "github@lagan.me",
                             Name = "Kam Lagan",
                             Url = new Uri("https://www.something.kam")
                         },
-                        License = new Microsoft.OpenApi.Models.OpenApiLicense()
+                        License = new Microsoft.OpenApi.Models.OpenApiLicense
                         {
                             Name = "MIT License",
                             Url = new Uri("https://opensource.org/licenses/MIT")

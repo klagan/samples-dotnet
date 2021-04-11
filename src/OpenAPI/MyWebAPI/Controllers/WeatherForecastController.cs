@@ -1,5 +1,7 @@
 ﻿namespace MyWebAPI.Controllers
 {
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using MyWeather.Bll;
@@ -24,7 +26,9 @@
         /// Test description for 'GET' method
         /// </summary>
         /// <returns>Sample return description</returns>
+        /// <response code="200">Returns a list of weather forecasts</response>
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<WeatherForecast>), StatusCodes.Status200OK)]
         public IActionResult Get()
         {
             return Ok(_weatherForecastCompute.Get());
@@ -35,8 +39,9 @@
         /// </summary>
         /// <param name="sampleModel">a sample model value</param>
         /// <param name="someId">a sample ID property</param>
-        /// <returns></returns>
+        /// <returns>a sample return value</returns>
         [HttpGet("SampleGet")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public IActionResult SampleGet([FromQuery] SampleModel sampleModel, [FromQuery] int someId)
         {
             return Ok($"{sampleModel.Id} => {sampleModel.Description} => {someId}");
