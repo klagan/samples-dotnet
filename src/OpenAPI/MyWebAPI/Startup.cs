@@ -35,8 +35,9 @@ namespace MyWebAPI
                     setupAction.Filters.Add(
                         new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
 
-                    setupAction.Filters.Add(
-                        new ProducesDefaultResponseTypeAttribute());
+                    // TODO: causing response errors when accept header is test/plain
+                    // setupAction.Filters.Add(
+                    //     new ProducesDefaultResponseTypeAttribute());
             
                     setupAction.ReturnHttpNotAcceptable = true;
                     setupAction.RespectBrowserAcceptHeader = true;

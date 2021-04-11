@@ -30,9 +30,12 @@ namespace MyWebAPI.Controllers
         public IEnumerable<string> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index =>
+            
+            var result =  Enumerable.Range(1, 5).Select(index =>
                     UserNames[rng.Next(UserNames.Length)])
                 .ToArray();
+
+            return result;
         }
     }
 }
