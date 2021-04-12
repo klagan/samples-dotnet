@@ -24,6 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4c559d20-f26a-4ab1-a452-42822be54b43" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/MyWebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +36,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1E25F52D-45CB-4EEA-99D3-5259A6B3CE99/5/DiagnosticsLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/V2/Controllers/UserNameController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/DF9D541E-58AC-46EB-9D52-95A12B55C0C5/F3/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWeather.Models/WeatherForecast.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/Controllers/WeatherForecastController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/Startup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -119,7 +122,7 @@
       <workItem from="1618047736762" duration="7078000" />
       <workItem from="1618129255267" duration="6376000" />
       <workItem from="1618136479556" duration="2176000" />
-      <workItem from="1618149916186" duration="15519000" />
+      <workItem from="1618149916186" duration="16466000" />
     </task>
     <task id="LOCAL-00001" summary="- add openapi example">
       <created>1618134291731</created>
@@ -184,7 +187,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618237433494</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- added example for authorisation">
+      <created>1618237867481</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1618237867481</updated>
+    </task>
+    <task id="LOCAL-00011" summary="- using clause refactor">
+      <created>1618237949359</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1618237949359</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +230,9 @@
     <MESSAGE value="- added more documentation samples" />
     <MESSAGE value="- added versioning&#10;- more generic swagger set up&#10;- still needs more refactoring then modularising" />
     <MESSAGE value="- removed commented out code&#10;- made v2 output of username controller more obvious" />
-    <option name="LAST_COMMIT_MESSAGE" value="- removed commented out code&#10;- made v2 output of username controller more obvious" />
+    <MESSAGE value="- added example for authorisation" />
+    <MESSAGE value="- using clause refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="- using clause refactor" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="196" width="1084" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618235423421">
@@ -228,22 +247,22 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="659" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1608.1023@72.27.1608.1023" timestamp="1618136088814" />
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1618237383526">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1618237817657">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1618237383526" />
-    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1618237383525">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1618237817657" />
+    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1618237817656">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1618237383525" />
-    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1618237383524">
+    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1618237817656" />
+    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1618237817655">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1618237383524" />
-    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1618237383525">
+    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1618237817655" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1618237817656">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1618237383525" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1618237817656" />
     <state width="1562" height="179" key="GridCell.Tab.1.bottom" timestamp="1618236048935">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
@@ -312,16 +331,33 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="471" y="273" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/72.27.1608.1023@72.27.1608.1023" timestamp="1618151069063" />
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1618237434958">
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1618237951924">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1618237434958" />
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1618237951924" />
     <state x="486" y="153" width="770" height="778" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1618169358509">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="486" y="153" width="770" height="778" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1608.1023@72.27.1608.1023" timestamp="1618169358509" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MyWebAPI/Startup.cs</url>
+          <line>164</line>
+          <properties documentPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" initialLine="164">
+            <startOffsets>
+              <option value="7643" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7653" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Mvc.ApiExplorer.ApiExplorerOptions" memberName="parameterSource" />

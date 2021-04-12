@@ -7,7 +7,7 @@ namespace MyWebAPI.V2.Controllers
 {
     [ApiController]
     [ApiVersion( "2.0" )]
-    [ApiExplorerSettings(GroupName = "v2")]
+    [ApiExplorerSettings(IgnoreApi = false, GroupName = "v2")]
     [Route( "api/v{version:apiVersion}/[controller]" )]
     public class UserNameController : ControllerBase
     {
