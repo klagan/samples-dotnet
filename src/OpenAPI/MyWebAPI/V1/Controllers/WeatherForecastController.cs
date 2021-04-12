@@ -1,16 +1,17 @@
-﻿namespace MyWebAPI.Controllers
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using MyWeather.Bll;
+using MyWeather.Models;
+
+namespace MyWebAPI.V1.Controllers
 {
-    using System.Collections.Generic;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using MyWeather.Bll;
-    using MyWeather.Models;
-
-
     [ApiController]
-    [ApiExplorerSettings(GroupName = "MyWeatherAPI")]
-    [Route("[controller]")]
+    [ApiVersion( "1.0" )]
+    [ApiExplorerSettings(GroupName = "v1")]
+    // [Route("[controller]")]
+    [Route( "api/v{version:apiVersion}/[controller]" )]
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;

@@ -1,12 +1,13 @@
-namespace MyWebAPI.Controllers
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using MyUserName.Bll;
+
+namespace MyWebAPI.V2.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using MyUserName.Bll;
-    
     [ApiController]
-    [ApiExplorerSettings(GroupName = "MyUserNameAPI")]
-    [Route("[controller]")]
+    [ApiVersion( "2.0" )]
+    [ApiExplorerSettings(GroupName = "v2")]
+    [Route( "api/v{version:apiVersion}/[controller]" )]
     public class UserNameController : ControllerBase
     {
         private readonly ILogger<UserNameController> _logger;
@@ -26,6 +27,13 @@ namespace MyWebAPI.Controllers
         public IActionResult Get()
         {
             return Ok(_userNameCompute.Get());
+        }
+
+        [HttpGet("OnlyOnV2")]
+        [ApiVersion( "2.0" )]
+        public IActionResult OnlyOnV2()
+        {
+            return Ok("i'm on version 2.0");
         }
     }
 }

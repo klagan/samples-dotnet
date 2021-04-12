@@ -42,16 +42,28 @@
         </e>
       </e>
       <e p="MyWebAPI" t="IncludeRecursive">
-        <e p="Controllers" t="Include">
-          <e p="UserNameController.cs" t="Include" />
-          <e p="WeatherForecastController.cs" t="Include" />
-        </e>
+        <e p="ConfigureSwaggerOptions.cs" t="Include" />
         <e p="MyWebAPI.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="SwaggerDefaultValues.cs" t="Include" />
+        <e p="V1" t="Include">
+          <e p="Controllers" t="Include">
+            <e p="UserNameController.cs" t="Include" />
+            <e p="WeatherForecastController.cs" t="Include" />
+          </e>
+          <e p="Models" t="Include" />
+        </e>
+        <e p="V2" t="Include">
+          <e p="Controllers" t="Include">
+            <e p="UserNameController.cs" t="Include" />
+            <e p="WeatherForecastController.cs" t="Include" />
+          </e>
+          <e p="Models" t="Include" />
+        </e>
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />

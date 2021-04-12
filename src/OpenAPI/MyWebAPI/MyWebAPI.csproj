@@ -5,12 +5,17 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.2" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\MyUserName.Bll\MyUserName.Bll.csproj" />
       <ProjectReference Include="..\MyWeather.Bll\MyWeather.Bll.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="V2\Models" />
     </ItemGroup>
 
     <PropertyGroup>
