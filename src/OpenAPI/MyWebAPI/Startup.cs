@@ -131,7 +131,12 @@ namespace MyWebAPI
                                     $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
                                 AuthorizationUrl = new Uri(
                                     $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
-                                Scopes = {{ "scopes", "My Sample Web API"}},
+                                Scopes =
+                                {
+                                    { "my_scope_1", "Scope 1"},
+                                    { "my_scope_2", "Scope 2"},
+                                    { "my_scope_3", "Scope 3"}
+                                },
                             }
                         }
                     });
@@ -154,11 +159,22 @@ namespace MyWebAPI
                 options =>
                 {
                     // build a swagger endpoint for each discovered API version
-                    foreach ( var description in provider.ApiVersionDescriptions )
+                    foreach (var description in provider.ApiVersionDescriptions)
                     {
-                        options.SwaggerEndpoint( $"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant() );
+                        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                            description.GroupName.ToUpperInvariant());
                     }
-                } );
+
+                    options.RoutePrefix = string.Empty;
+                    options.HeadContent = @"<p style=""color:red""><b><center>this may be a good place for identifying environments, perhaps?</center></b></p>";
+                    options.DocumentTitle = "my sample web api";
+                    options.OAuthClientId("my_client_id");
+                    options.OAuthClientSecret("my_client_secret");
+                    
+                    // scopes are defined in the OpenApiOAuthFlows of the SecurityDefinition object
+                    // default scopes to select are set here
+                    options.OAuthScopes("my_scope_1", "my_scope_3");
+                });
 
             app.UseRouting();
 

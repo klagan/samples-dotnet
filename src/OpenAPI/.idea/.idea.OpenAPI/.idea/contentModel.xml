@@ -55,7 +55,6 @@
             <e p="UserNameController.cs" t="Include" />
             <e p="WeatherForecastController.cs" t="Include" />
           </e>
-          <e p="Models" t="Include" />
         </e>
         <e p="V2" t="Include">
           <e p="Controllers" t="Include">
