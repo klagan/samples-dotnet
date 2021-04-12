@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyUserName.Bll;
@@ -26,7 +27,10 @@ namespace MyWebAPI.V2.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_userNameCompute.Get());
+            var result = _userNameCompute.Get()
+                .Select(x => x = $"{x}-v2");
+            
+            return Ok(result);
         }
 
         [HttpGet("OnlyOnV2")]

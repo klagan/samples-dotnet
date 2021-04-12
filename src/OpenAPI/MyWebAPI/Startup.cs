@@ -1,14 +1,8 @@
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.Extensions.Options;
-using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
 namespace MyWebAPI
 {
     using System;
     using System.IO;
     using System.Linq;
-    using System.Reflection;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -17,6 +11,10 @@ namespace MyWebAPI
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.AspNetCore.Mvc.ApiExplorer;
+    using Microsoft.Extensions.Options;
+    using Swashbuckle.AspNetCore.SwaggerGen;
+
 
     public class Startup
     {
@@ -40,7 +38,6 @@ namespace MyWebAPI
                     setupAction.Filters.Add(
                         new ProducesResponseTypeAttribute(StatusCodes.Status500InternalServerError));
 
-                    // TODO: causing response errors when accept header is test/plain
                     setupAction.Filters.Add(
                         new ProducesDefaultResponseTypeAttribute());
 
@@ -63,7 +60,7 @@ namespace MyWebAPI
                         jsonOutputFormatter.SupportedMediaTypes.Remove("text/json");
                     }
                     
-                    // remove text/plain as a default
+                    // remove text/plain as a default to avoid response errors for unhandled mediatype
                     setupAction.OutputFormatters.RemoveType<StringOutputFormatter>();
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Latest);
@@ -107,75 +104,7 @@ namespace MyWebAPI
             
             services.AddTransient(typeof(MyWeather.Bll.Compute));
             services.AddTransient(typeof(MyUserName.Bll.Compute));
-            
-            // services.AddSwaggerGen(setupAction =>
-            // {
-            //     setupAction.SwaggerDoc(
-            //         "MyWeatherAPI",
-            //         new Microsoft.OpenApi.Models.OpenApiInfo
-            //         {
-            //             Title = "My Weather API",
-            //             Version = "1",
-            //             Description = "My Weather API Sample",
-            //             Contact = new Microsoft.OpenApi.Models.OpenApiContact
-            //             {
-            //                 Email = "github@lagan.me",
-            //                 Name = "Kam Lagan",
-            //                 Url = new Uri("https://www.something.kam")
-            //             },
-            //             License = new Microsoft.OpenApi.Models.OpenApiLicense
-            //             {
-            //                 Name = "MIT License",
-            //                 Url = new Uri("https://opensource.org/licenses/MIT")
-            //             }
-            //         });
-            //     
-            //     setupAction.SwaggerDoc(
-            //         "MyWeatherAPI2.0",
-            //         new Microsoft.OpenApi.Models.OpenApiInfo
-            //         {
-            //             Title = "My Weather API",
-            //             Version = "2",
-            //             Description = "My Weather API Sample",
-            //             Contact = new Microsoft.OpenApi.Models.OpenApiContact
-            //             {
-            //                 Email = "github@lagan.me",
-            //                 Name = "Kam Lagan",
-            //                 Url = new Uri("https://www.something.kam")
-            //             },
-            //             License = new Microsoft.OpenApi.Models.OpenApiLicense
-            //             {
-            //                 Name = "MIT License",
-            //                 Url = new Uri("https://opensource.org/licenses/MIT")
-            //             }
-            //         });
-            //
-            //     setupAction.SwaggerDoc(
-            //         "MyUserNameAPI",
-            //         new Microsoft.OpenApi.Models.OpenApiInfo()
-            //         {
-            //             Title = "My UserName API",
-            //             Version = "1",
-            //             Description = "My UserName API Sample",
-            //             Contact = new Microsoft.OpenApi.Models.OpenApiContact()
-            //             {
-            //                 Email = "github@lagan.me",
-            //                 Name = "Kam Lagan",
-            //                 Url = new Uri("https://www.something.kam")
-            //             },
-            //             License = new Microsoft.OpenApi.Models.OpenApiLicense()
-            //             {
-            //                 Name = "MIT License",
-            //                 Url = new Uri("https://opensource.org/licenses/MIT")
-            //             }
-            //         });
-            //     
-            //     foreach (var documentationFile in Directory.GetFiles(AppContext.BaseDirectory, "*.xml"))
-            //     {
-            //         setupAction.IncludeXmlComments(documentationFile);
-            //     }
-            // });
-            
+
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSwaggerGen(
                 options =>
@@ -203,19 +132,6 @@ namespace MyWebAPI
             
             app.UseSwagger();
 
-            // app.UseSwaggerUI(setupAction =>
-            // {
-            //     setupAction.SwaggerEndpoint(
-            //         "/swagger/MyWeatherAPI/swagger.json",
-            //         "My Weather API");
-            //     
-            //     setupAction.SwaggerEndpoint(
-            //         "/swagger/MyUserNameAPI/swagger.json",
-            //         "My UserName API");
-            //     
-            //     setupAction.RoutePrefix = "";
-            // });
-            
             app.UseSwaggerUI(
                 options =>
                 {

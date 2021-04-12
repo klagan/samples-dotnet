@@ -23,16 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c559d20-f26a-4ab1-a452-42822be54b43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MyWebAPI/ConfigureSwaggerOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyWebAPI/SwaggerDefaultValues.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/WeatherForecastController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/Controllers/UserNameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/V1/Controllers/UserNameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/V1/Controllers/WeatherForecastController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Properties/launchSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyWebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,13 +60,13 @@
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/V1/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" />
-        <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/UserNameController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/WeatherForecastController.cs" />
-        <option value="$PROJECT_DIR$/MyWebAPI/Startup.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/MyWebAPI/ConfigureSwaggerOptions.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V2/Controllers/WeatherForecastController.cs" />
+        <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/UserNameController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" />
+        <option value="$PROJECT_DIR$/MyWebAPI/Startup.cs" />
       </list>
     </option>
   </component>
@@ -129,7 +119,7 @@
       <workItem from="1618047736762" duration="7078000" />
       <workItem from="1618129255267" duration="6376000" />
       <workItem from="1618136479556" duration="2176000" />
-      <workItem from="1618149916186" duration="14237000" />
+      <workItem from="1618149916186" duration="14919000" />
     </task>
     <task id="LOCAL-00001" summary="- add openapi example">
       <created>1618134291731</created>
@@ -180,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618170090726</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- added versioning&#10;- more generic swagger set up&#10;- still needs more refactoring then modularising">
+      <created>1618236761341</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1618236761341</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +204,8 @@
     <MESSAGE value="- added some notes for future refactor" />
     <MESSAGE value="- add documentation files dynamically&#10;- generic documentation flags in .csproj" />
     <MESSAGE value="- added more documentation samples" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added more documentation samples" />
+    <MESSAGE value="- added versioning&#10;- more generic swagger set up&#10;- still needs more refactoring then modularising" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added versioning&#10;- more generic swagger set up&#10;- still needs more refactoring then modularising" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="196" width="1084" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618235423421">
@@ -222,22 +220,22 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="659" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1608.1023@72.27.1608.1023" timestamp="1618136088814" />
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1618236448979">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1618236671763">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1618236448979" />
-    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1618236448978">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1618236671763" />
+    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1618236671762">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1618236448978" />
-    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1618236448977">
+    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1618236671762" />
+    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1618236671761">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1618236448977" />
-    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1618236448978">
+    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1618236671761" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1618236671762">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1618236448978" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1618236671762" />
     <state width="1562" height="179" key="GridCell.Tab.1.bottom" timestamp="1618236048935">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
@@ -306,10 +304,10 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="471" y="273" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/72.27.1608.1023@72.27.1608.1023" timestamp="1618151069063" />
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1618170092008">
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1618236763049">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1618170092008" />
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1618236763049" />
     <state x="486" y="153" width="770" height="778" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1618169358509">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
