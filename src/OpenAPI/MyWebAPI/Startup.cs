@@ -1,3 +1,5 @@
+using Microsoft.OpenApi.Models;
+
 namespace MyWebAPI
 {
     using System;
@@ -117,6 +119,24 @@ namespace MyWebAPI
                     {
                         options.IncludeXmlComments(documentationFile);
                     }
+                    
+                    // this is just an example and does not work as the API is not protected by secuirty layer
+                    // and the token values below are not valid
+                    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                    {
+                        Type = SecuritySchemeType.OAuth2,
+                        Flows = new OpenApiOAuthFlows()
+                        {
+                            Implicit = new OpenApiOAuthFlow
+                            {
+                                TokenUrl = new Uri(
+                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
+                                AuthorizationUrl = new Uri(
+                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
+                                Scopes = {{ "scopes", "My Sample Web API"}},
+                            }
+                        }
+                    });
                 } );
         }
 
