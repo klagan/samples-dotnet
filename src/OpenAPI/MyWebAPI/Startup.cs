@@ -1,5 +1,3 @@
-using Microsoft.OpenApi.Models;
-
 namespace MyWebAPI
 {
     using System;
@@ -16,7 +14,7 @@ namespace MyWebAPI
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
     using Microsoft.Extensions.Options;
     using Swashbuckle.AspNetCore.SwaggerGen;
-
+    using Microsoft.OpenApi.Models;
 
     public class Startup
     {
