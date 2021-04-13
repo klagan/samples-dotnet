@@ -120,28 +120,28 @@ namespace MyWebAPI
                         options.IncludeXmlComments(documentationFile);
                     }
                     
-                    // this is just an example and does not work as the API is not protected by secuirty layer
+                    // this is just an example and does not work as the API is not protected by security layer
                     // and the token values below are not valid
-                    // options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                    // {
-                    //     Type = SecuritySchemeType.OAuth2,
-                    //     Flows = new OpenApiOAuthFlows()
-                    //     {
-                    //         Implicit = new OpenApiOAuthFlow
-                    //         {
-                    //             TokenUrl = new Uri(
-                    //                 $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
-                    //             AuthorizationUrl = new Uri(
-                    //                 $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
-                    //             Scopes =
-                    //             {
-                    //                 { "my_scope_1", "Scope 1"},
-                    //                 { "my_scope_2", "Scope 2"},
-                    //                 { "my_scope_3", "Scope 3"}
-                    //             },
-                    //         }
-                    //     }
-                    // });
+                    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                    {
+                        Type = SecuritySchemeType.OAuth2,
+                        Flows = new OpenApiOAuthFlows()
+                        {
+                            Implicit = new OpenApiOAuthFlow
+                            {
+                                TokenUrl = new Uri(
+                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
+                                AuthorizationUrl = new Uri(
+                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
+                                Scopes =
+                                {
+                                    { "my_scope_1", "Scope 1"},
+                                    { "my_scope_2", "Scope 2"},
+                                    { "my_scope_3", "Scope 3"}
+                                },
+                            }
+                        }
+                    });
                 } );
             
             services.AddCors(options =>

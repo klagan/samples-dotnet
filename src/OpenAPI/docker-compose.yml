@@ -42,4 +42,5 @@ services:
       - SPEC_URL=http://localhost:5000/swagger/v1/swagger.json
       - SPEC_URL3=https://kam-redoc.azurewebsites.net/swagger/v1/swagger.json
       - SPEC_URL1=https://petstore3.swagger.io/api/v3/openapi.json
+      - SPEC_URL2=https://kam-redoc.azurewebsites.net/swagger/v1/swagger.json
  
