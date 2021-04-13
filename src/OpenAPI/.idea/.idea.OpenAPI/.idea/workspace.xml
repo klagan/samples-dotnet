@@ -23,11 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c559d20-f26a-4ab1-a452-42822be54b43" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +123,7 @@
       <workItem from="1618047736762" duration="7078000" />
       <workItem from="1618129255267" duration="6376000" />
       <workItem from="1618136479556" duration="2176000" />
-      <workItem from="1618149916186" duration="19104000" />
+      <workItem from="1618149916186" duration="20648000" />
     </task>
     <task id="LOCAL-00001" summary="- add openapi example">
       <created>1618134291731</created>
@@ -213,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618238888635</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="- added authorisation scopes">
+      <created>1618241473585</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1618241473585</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +248,8 @@
     <MESSAGE value="- added example for authorisation" />
     <MESSAGE value="- using clause refactor" />
     <MESSAGE value="- refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="- refactor" />
+    <MESSAGE value="- added authorisation scopes" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added authorisation scopes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="196" width="1084" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618239131446">
@@ -260,22 +264,22 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="659" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1608.1023@72.27.1608.1023" timestamp="1618136088814" />
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1618241188151">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1618299327374">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1618241188151" />
-    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1618241188150">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1618299327374" />
+    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1618299327373">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1618241188150" />
-    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1618241188149">
+    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1618299327373" />
+    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1618299327372">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1618241188149" />
-    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1618241188150">
+    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1618299327372" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1618299327373">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1618241188150" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1618299327373" />
     <state width="1562" height="179" key="GridCell.Tab.1.bottom" timestamp="1618239136878">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
@@ -344,10 +348,10 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="471" y="273" width="800" height="537" key="Rider.ProjectTemplateDialog.Size/72.27.1608.1023@72.27.1608.1023" timestamp="1618151069063" />
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1618238890047">
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1618241475056">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1618238890047" />
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1618241475056" />
     <state x="486" y="153" width="770" height="778" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1618169358509">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
