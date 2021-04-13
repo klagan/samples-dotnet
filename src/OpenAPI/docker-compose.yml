@@ -1,0 +1,66 @@
+version: '3.7'
+services:
+
+  mywebapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # args:
+      #   - NUGET_UID
+      #   - NUGET_PWD
+    image: sample/mywebapi
+    container_name: mywebapi
+    network_mode: host
+    restart: "no"
+    ports:
+      - 5000:5000
+    # healthcheck:
+    #   test: curl --fail -s http://localhost:5000/index.html || exit 1
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    #   start_period: 40s
+    # volumes:
+    #    - type: bind
+    #      source: ./override
+    #      target: /app/override
+    environment:
+    - ASPNETCORE_URLS=http://+:5000
+    - DOTNET_USE_POLLING_FILE_WATCHER=true
+    - ASPNETCORE_ENVIRONMENT=Development
+    - DOCKER_IMAGE_VERSION=local image
+
+
+
+
+  myredoc:
+    image: redocly/redoc
+    container_name: myredoc
+    network_mode: host
+    restart: "no"
+    ports:
+      - 8080:8081
+    environment:
+      - SPEC_URL=http://localhost:5000/swagger/v1/swagger.json
+  # coredb:
+  #   # build:
+  #   #   context: .
+  #   #   dockerfile: build/database/Dockerfile
+  #   # image: local/coredb
+  #   image: mcr.microsoft.com/mssql/server:2017-GA-ubuntu
+  #   container_name: coredb
+  #   network_mode: host
+  #   restart: "no"
+  #   # volumes:
+  #   #    - type: bind
+  #   #      source: ./override
+  #   #      target: /app/override
+  #   ports:
+  #     - 1433:1433
+  #   environment:
+  #   - ACCEPT_EULA=Y
+  #   - SA_PASSWORD=Aprexo@1
+  #   - DB_USERNAME=sa
+  #   - DB_PASSWORD=Aprexo@1
+  #   - DB_NAME=master
+  #   - STARTUP_DELAY=5s
