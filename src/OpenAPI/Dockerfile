@@ -35,7 +35,7 @@ COPY --chown=app --from=build /build/output/ /app
 
 WORKDIR /app
 
-ENV ASPNETCORE_URLS= \
+ENV ASPNETCORE_URLS=http://+:5000 \
 DOTNET_USE_POLLING_FILE_WATCHER=true \
 ASPNETCORE_ENVIRONMENT=Development
 

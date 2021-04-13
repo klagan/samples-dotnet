@@ -109,6 +109,8 @@ namespace MyWebAPI
             services.AddSwaggerGen(
                 options =>
                 {
+                    options.CustomOperationIds(e => $"{e.ActionDescriptor.RouteValues["controller"]}_{e.HttpMethod}");
+                    
                     // add a custom operation filter which sets default values
                     options.OperationFilter<SwaggerDefaultValues>();
 
@@ -120,27 +122,37 @@ namespace MyWebAPI
                     
                     // this is just an example and does not work as the API is not protected by secuirty layer
                     // and the token values below are not valid
-                    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                    {
-                        Type = SecuritySchemeType.OAuth2,
-                        Flows = new OpenApiOAuthFlows()
-                        {
-                            Implicit = new OpenApiOAuthFlow
-                            {
-                                TokenUrl = new Uri(
-                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
-                                AuthorizationUrl = new Uri(
-                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
-                                Scopes =
-                                {
-                                    { "my_scope_1", "Scope 1"},
-                                    { "my_scope_2", "Scope 2"},
-                                    { "my_scope_3", "Scope 3"}
-                                },
-                            }
-                        }
-                    });
+                    // options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                    // {
+                    //     Type = SecuritySchemeType.OAuth2,
+                    //     Flows = new OpenApiOAuthFlows()
+                    //     {
+                    //         Implicit = new OpenApiOAuthFlow
+                    //         {
+                    //             TokenUrl = new Uri(
+                    //                 $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
+                    //             AuthorizationUrl = new Uri(
+                    //                 $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
+                    //             Scopes =
+                    //             {
+                    //                 { "my_scope_1", "Scope 1"},
+                    //                 { "my_scope_2", "Scope 2"},
+                    //                 { "my_scope_3", "Scope 3"}
+                    //             },
+                    //         }
+                    //     }
+                    // });
                 } );
+            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                        .AllowAnyMethod()
+                        .AllowCredentials()
+                        .SetIsOriginAllowed((host) => true)
+                        .AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -151,8 +163,10 @@ namespace MyWebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            app.UseCors("CorsPolicy");
             
+            // app.UseHttpsRedirection();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(

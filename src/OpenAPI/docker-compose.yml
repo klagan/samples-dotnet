@@ -30,37 +30,16 @@ services:
     - ASPNETCORE_ENVIRONMENT=Development
     - DOCKER_IMAGE_VERSION=local image
 
-
-
-
   myredoc:
     image: redocly/redoc
     container_name: myredoc
     network_mode: host
     restart: "no"
+    # ports are ignored when we set the network to host
     ports:
       - 8080:8081
     environment:
       - SPEC_URL=http://localhost:5000/swagger/v1/swagger.json
-  # coredb:
-  #   # build:
-  #   #   context: .
-  #   #   dockerfile: build/database/Dockerfile
-  #   # image: local/coredb
-  #   image: mcr.microsoft.com/mssql/server:2017-GA-ubuntu
-  #   container_name: coredb
-  #   network_mode: host
-  #   restart: "no"
-  #   # volumes:
-  #   #    - type: bind
-  #   #      source: ./override
-  #   #      target: /app/override
-  #   ports:
-  #     - 1433:1433
-  #   environment:
-  #   - ACCEPT_EULA=Y
-  #   - SA_PASSWORD=Aprexo@1
-  #   - DB_USERNAME=sa
-  #   - DB_PASSWORD=Aprexo@1
-  #   - DB_NAME=master
-  #   - STARTUP_DELAY=5s
+      - SPEC_URL3=https://kam-redoc.azurewebsites.net/swagger/v1/swagger.json
+      - SPEC_URL1=https://petstore3.swagger.io/api/v3/openapi.json
+ 
