@@ -175,7 +175,7 @@ namespace MyWebAPI
                     // build a swagger endpoint for each discovered API version
                     foreach (var description in provider.ApiVersionDescriptions)
                     {
-                        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.yaml",
                             description.GroupName.ToUpperInvariant());
                     }
 
