@@ -1,3 +1,6 @@
+using System.Reflection;
+using System.Runtime.InteropServices.ComTypes;
+
 namespace MyWebAPI
 {
     using System;
@@ -109,7 +112,12 @@ namespace MyWebAPI
             services.AddSwaggerGen(
                 options =>
                 {
-                    options.CustomOperationIds(e => $"{e.ActionDescriptor.RouteValues["controller"]}_{e.HttpMethod}");
+                    // add operation ids
+                    options.CustomOperationIds(description =>
+                        description.TryGetMethodInfo(out var methodInfo)
+                            ? $"{description.ActionDescriptor.RouteValues["controller"]}_{methodInfo.Name}_{description.HttpMethod}"
+                            : throw new MemberAccessException(description.ActionDescriptor.RouteValues["controller"])
+                    );
                     
                     // add a custom operation filter which sets default values
                     options.OperationFilter<SwaggerDefaultValues>();
