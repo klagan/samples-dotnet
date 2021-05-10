@@ -23,12 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c559d20-f26a-4ab1-a452-42822be54b43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/GroupedTagsDocumentFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/ConfigureSwaggerOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiGenerationOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/SwaggerDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiDefaultValues.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWeather.Models/SampleModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWeather.Models/SampleModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiGenerationOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiGenerationOptions.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,12 +58,10 @@
         <option value="$PROJECT_DIR$/MyWebAPI/Models/WeatherForecast.cs" />
         <option value="$PROJECT_DIR$/MyUserName.Bll/Class1.cs" />
         <option value="$PROJECT_DIR$/MyWeather.Models/MyWeather.Models.csproj" />
-        <option value="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/UserNameController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/V1/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" />
-        <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V2/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/UserNameController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Properties/launchSettings.json" />
@@ -75,7 +71,10 @@
         <option value="$PROJECT_DIR$/MyWebAPI/SwaggerDefaultValues.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/GroupedTagsDocumentFilter.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Startup.cs" />
+        <option value="$PROJECT_DIR$/MyWeather.Models/SampleModel.cs" />
+        <option value="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiDefaultValues.cs" />
+        <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiGenerationOptions.cs" />
       </list>
     </option>
@@ -133,7 +132,7 @@
       <workItem from="1618149916186" duration="21278000" />
       <workItem from="1618319010824" duration="5477000" />
       <workItem from="1618929760580" duration="1993000" />
-      <workItem from="1620646873435" duration="8005000" />
+      <workItem from="1620646873435" duration="11786000" />
     </task>
     <task id="LOCAL-00001" summary="- add openapi example">
       <created>1618134291731</created>
@@ -240,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620650551821</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="- added more verbose documentation&#10;- added grouped tags&#10;- enabled authentication (for show - not implemented)">
+      <created>1620655035268</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1620655035268</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +281,8 @@
     <MESSAGE value="- added authorisation scopes" />
     <MESSAGE value="- refactor of workspace.xml" />
     <MESSAGE value="- added server example&#10;- added x-logo for redoc image on index.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added server example&#10;- added x-logo for redoc image on index.html" />
+    <MESSAGE value="- added more verbose documentation&#10;- added grouped tags&#10;- enabled authentication (for show - not implemented)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added more verbose documentation&#10;- added grouped tags&#10;- enabled authentication (for show - not implemented)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="334" y="196" width="1084" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618239131446">
@@ -290,22 +297,22 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="659" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1608.1023@72.27.1608.1023" timestamp="1618136088814" />
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1620654607173">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1620661334065">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1620654607173" />
-    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1620654607172">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1620661334065" />
+    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1620661334064">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1620654607172" />
-    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1620654607172">
+    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1620661334064" />
+    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1620661334063">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1620654607172" />
-    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1620654607173">
+    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1620661334063" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1620661334064">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1620654607173" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1620661334064" />
     <state width="1562" height="179" key="GridCell.Tab.1.bottom" timestamp="1620652016534">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
@@ -382,10 +389,10 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="172" y="127" width="1408" height="823" key="VCS.FileHistoryDialog/72.27.1608.1023@72.27.1608.1023" timestamp="1620648751948" />
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1620650554471">
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1620655037272">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1620650554471" />
+    <state x="471" y="274" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1608.1023@72.27.1608.1023" timestamp="1620655037272" />
     <state x="486" y="153" width="770" height="778" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1618320069283">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>

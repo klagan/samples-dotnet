@@ -42,6 +42,11 @@ namespace MyWebAPI.MyOpenApiConfiguration
                 Description = "Local Host",
                 Url = "http://localhost:5000"
             });
+            options.AddServer(new OpenApiServer
+            {
+                Description = "Remote Host (fake)",
+                Url = "http://remotehost:5000"
+            });
         }
 
         static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
@@ -63,7 +68,7 @@ This is a section to illustrate a child section
 This is a child section
 # Authentication
 (not true! - this is just sample documentation)
-'My Sample Web API' offers two forms of authentication:
+**My Sample Web API** offers two forms of authentication:
 - API Key
 - OAuth2
 OAuth2 - an open protocol to allow secure authorization in a simple and standard method from web, mobile and desktop applications.",
