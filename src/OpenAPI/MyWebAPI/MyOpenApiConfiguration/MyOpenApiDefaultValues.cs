@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace MyWebAPI
+namespace MyWebAPI.MyOpenApiConfiguration
 {
     /// <summary>
     /// Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.
     /// </summary>
     /// <remarks>This <see cref="IOperationFilter"/> is only required due to bugs in the <see cref="SwaggerGenerator"/>.
     /// Once they are fixed and published, this class can be removed.</remarks>
-    public class SwaggerDefaultValues : IOperationFilter
+    public class MyOpenApiDefaultValues : IOperationFilter
     {
         /// <summary>
         /// Applies the filter to the specified operation using the given context.

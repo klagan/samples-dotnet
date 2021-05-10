@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Runtime.InteropServices.ComTypes;
+using MyWebAPI.MyOpenApiConfiguration;
 
 namespace MyWebAPI
 {
@@ -108,10 +109,13 @@ namespace MyWebAPI
             services.AddTransient(typeof(MyWeather.Bll.Compute));
             services.AddTransient(typeof(MyUserName.Bll.Compute));
 
-            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, MyOpenApiGenerationOptions>();
             services.AddSwaggerGen(
                 options =>
                 {
+                    // redoc: https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#redoc-vendor-extensions
+                    options.DocumentFilter<GroupedTagsDocumentFilter>();
+                    
                     // add operation ids
                     options.CustomOperationIds(description =>
                         description.TryGetMethodInfo(out var methodInfo)
@@ -120,7 +124,7 @@ namespace MyWebAPI
                     );
                     
                     // add a custom operation filter which sets default values
-                    options.OperationFilter<SwaggerDefaultValues>();
+                    options.OperationFilter<MyOpenApiDefaultValues>();
 
                     // integrate xml comments
                     foreach (var documentationFile in Directory.GetFiles(AppContext.BaseDirectory, "*.xml"))
@@ -130,26 +134,26 @@ namespace MyWebAPI
                     
                     // this is just an example and does not work as the API is not protected by security layer
                     // and the token values below are not valid
-                    // options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                    // {
-                    //     Type = SecuritySchemeType.OAuth2,
-                    //     Flows = new OpenApiOAuthFlows()
-                    //     {
-                    //         Implicit = new OpenApiOAuthFlow
-                    //         {
-                    //             TokenUrl = new Uri(
-                    //                 $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
-                    //             AuthorizationUrl = new Uri(
-                    //                 $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
-                    //             Scopes =
-                    //             {
-                    //                 { "my_scope_1", "Scope 1"},
-                    //                 { "my_scope_2", "Scope 2"},
-                    //                 { "my_scope_3", "Scope 3"}
-                    //             },
-                    //         }
-                    //     }
-                    // });
+                    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                    {
+                        Type = SecuritySchemeType.OAuth2,
+                        Flows = new OpenApiOAuthFlows()
+                        {
+                            Implicit = new OpenApiOAuthFlow
+                            {
+                                TokenUrl = new Uri(
+                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
+                                AuthorizationUrl = new Uri(
+                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
+                                Scopes =
+                                {
+                                    { "my_scope_1", "Scope 1"},
+                                    { "my_scope_2", "Scope 2"},
+                                    { "my_scope_3", "Scope 3"}
+                                },
+                            }
+                        }
+                    });
                 } );
             
             services.AddCors(options =>

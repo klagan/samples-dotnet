@@ -8,22 +8,22 @@ using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace MyWebAPI
+namespace MyWebAPI.MyOpenApiConfiguration
 {
     /// <summary>
     /// Configures the Swagger generation options.
     /// </summary>
     /// <remarks>This allows API versioning to define a Swagger document per API version after the
     /// <see cref="IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
-    public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
+    public class MyOpenApiGenerationOptions : IConfigureOptions<SwaggerGenOptions>
     {
         readonly IApiVersionDescriptionProvider _provider;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConfigureSwaggerOptions"/> class.
+        /// Initializes a new instance of the <see cref="MyOpenApiGenerationOptions"/> class.
         /// </summary>
         /// <param name="provider">The <see cref="IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
-        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) => this._provider = provider;
+        public MyOpenApiGenerationOptions(IApiVersionDescriptionProvider provider) => this._provider = provider;
 
         /// <inheritdoc />
         public void Configure(SwaggerGenOptions options)
@@ -50,7 +50,23 @@ namespace MyWebAPI
             {
                 Title = "My Sample Web API",
                 Version = description.ApiVersion.ToString(),
-                Description = "My sample Web API",
+                Description = @"
+# Introduction
+This API is documented in **OpenAPI format** and originally provided by [swagger.io](http://swagger.io) team. It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo) tool and [ReDoc](https://github.com/Redocly/redoc) documentation. In addition to standard OpenAPI syntax we use a few [vendor extensions](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md).
+## OpenAPI Specification
+This API is documented in **OpenAPI format** and originally provided by [swagger.io](http://swagger.io) team. It was **extended** to illustrate features of [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo) tool and [ReDoc](https://github.com/Redocly/redoc) documentation. In addition to standard OpenAPI syntax we use a few [vendor extensions](https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md).
+## Cross-Origin Resource Sharing
+This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/).  And that allows cross-domain communication from the browser. All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.
+## Another section
+This is a section to illustrate a child section
+### Child section
+This is a child section
+# Authentication
+(not true! - this is just sample documentation)
+'My Sample Web API' offers two forms of authentication:
+- API Key
+- OAuth2
+OAuth2 - an open protocol to allow secure authorization in a simple and standard method from web, mobile and desktop applications.",
                 Contact = new OpenApiContact()
                 {
                     Name = "API Support",
@@ -70,22 +86,9 @@ namespace MyWebAPI
                             {
                                 "url",
                                 new OpenApiString(
-                                    "https://static.wixstatic.com/media/2d8b87_238e5d2d26bb44dea93753c448f6c428~mv2_d_1394_1344_s_2.png/v1/fill/w_391,h_375,al_c,usm_0.66_1.00_0.01/2d8b87_238e5d2d26bb44dea93753c448f6c428~mv2_d_1394_1344_s_2.png")
+                                    "http://images5.fanpop.com/image/photos/29000000/Little-Monkey-monkeys-29039877-449-438.png")
                             },
                             {"altText", new OpenApiString("The Logo")}
-                        }
-                    },
-                    {
-                        "x-tagGroups", new OpenApiObject
-                        {
-                            {"name", new OpenApiString("Kam")},
-                            {
-                                "tags", new OpenApiArray
-                                {
-                                    new OpenApiString("UserName"),
-                                    new OpenApiString("store")
-                                }
-                            }
                         }
                     }
                 }

@@ -42,14 +42,17 @@
         </e>
       </e>
       <e p="MyWebAPI" t="IncludeRecursive">
-        <e p="ConfigureSwaggerOptions.cs" t="Include" />
+        <e p="MyOpenApiConfiguration" t="Include">
+          <e p="GroupedTagsDocumentFilter.cs" t="Include" />
+          <e p="MyOpenApiDefaultValues.cs" t="Include" />
+          <e p="MyOpenApiGenerationOptions.cs" t="Include" />
+        </e>
         <e p="MyWebAPI.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="SwaggerDefaultValues.cs" t="Include" />
         <e p="V1" t="Include">
           <e p="Controllers" t="Include">
             <e p="UserNameController.cs" t="Include" />
