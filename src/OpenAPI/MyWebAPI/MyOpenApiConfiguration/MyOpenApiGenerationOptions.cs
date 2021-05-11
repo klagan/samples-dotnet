@@ -75,8 +75,8 @@ OAuth2 - an open protocol to allow secure authorization in a simple and standard
                 Contact = new OpenApiContact()
                 {
                     Name = "API Support",
-                    Email = "apisupport@something.com",
-                    Url = new Uri("https://www.something.kam")
+                    Email = "apisupport@sample.laganlabs.it",
+                    Url = new Uri("https://www.laganlabs.it")
                 },
                 License = new OpenApiLicense()
                 {
@@ -86,6 +86,7 @@ OAuth2 - an open protocol to allow secure authorization in a simple and standard
                 Extensions = new Dictionary<string, IOpenApiExtension>
                 {
                     {
+                        // should probably use static files at this point to remove the dependency on a third party
                         "x-logo", new OpenApiObject
                         {
                             {

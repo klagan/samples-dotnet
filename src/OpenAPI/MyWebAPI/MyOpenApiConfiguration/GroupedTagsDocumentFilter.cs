@@ -13,7 +13,7 @@ namespace MyWebAPI.MyOpenApiConfiguration
                 new OpenApiObject
                 {
                     {
-                        "name", new OpenApiString("Kam Test")
+                        "name", new OpenApiString("All")
                     },
                     {
                         "tags", new OpenApiArray {new OpenApiString("UserName"), new OpenApiString("WeatherForecast")}

@@ -115,6 +115,7 @@ namespace MyWebAPI
                 {
                     // redoc: https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#redoc-vendor-extensions
                     options.DocumentFilter<GroupedTagsDocumentFilter>();
+                    options.DocumentFilter<TagDescriptionDocumentFilter>();
                     
                     // add operation ids
                     options.CustomOperationIds(description =>

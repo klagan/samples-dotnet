@@ -24,9 +24,17 @@ namespace MyWebAPI.V1.Controllers
         }
 
         /// <summary>
-        /// Test description for 'GET' method
+        /// Test description for 'GET' operation
         /// </summary>
         /// <returns>Sample return description</returns>
+        /// <remarks>This operation retrieves a weather random forecast. Here is where I would write more detailed information</remarks>
+        /// <code>
+        /// int c = Math.Add(4, 5);
+        /// if (c > 10)
+        /// {
+        ///     Console.WriteLine(c);
+        /// }
+        /// </code>
         /// <response code="200">Returns a list of weather forecasts</response>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<WeatherForecast>), StatusCodes.Status200OK)]
@@ -37,6 +45,7 @@ namespace MyWebAPI.V1.Controllers
 
         /// <summary>
         /// A sample GET method
+        /// This is an example of a GET operation for the WeatherForecast API
         /// </summary>
         /// <param name="sampleModel">a sample model value</param>
         /// <param name="someId">a sample ID property</param>
@@ -49,15 +58,16 @@ namespace MyWebAPI.V1.Controllers
         }
 
         /// <summary>
-        /// A sample POST method
+        /// A sample POST method. Ths is a sample POST operation for the WeatherForecast API
         /// </summary>
         /// <param name="sampleModel">a sample model value</param>
         /// <param name="someId">a sample ID property</param>
         /// <returns></returns>
         [HttpPost("SamplePost")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         public IActionResult SamplePost([FromBody] SampleModel sampleModel, [FromQuery] int someId)
         {
-            return Ok($"{sampleModel.Id} => {sampleModel.Description} => {someId}");
+            return Created(new System.Uri("/SamplePost", System.UriKind.Relative), $"{sampleModel.Id} => {sampleModel.Description} => {someId}");
         }
     }
 }

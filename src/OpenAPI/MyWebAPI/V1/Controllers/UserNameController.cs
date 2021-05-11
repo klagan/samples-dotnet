@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyUserName.Bll;
@@ -24,6 +25,7 @@ namespace MyWebAPI.V1.Controllers
         /// </summary>
         /// <returns>Sample return description</returns>
         [HttpGet]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public IActionResult Get()
         {
             return Ok(_userNameCompute.Get());
