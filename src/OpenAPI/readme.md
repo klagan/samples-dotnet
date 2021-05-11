@@ -7,7 +7,7 @@ It works in accordance with the [OpenAPI](https://swagger.io/resources/open-api/
 
 ## Acknowledgements
 
-- [ReDoc](hhttps://github.com/Redocly/redoc)
+- [ReDoc](https://github.com/Redocly/redoc)
 - [Swagger](https://swagger.io/resources/open-api/)
 
 ## Authors
