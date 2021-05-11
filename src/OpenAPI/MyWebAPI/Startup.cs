@@ -113,7 +113,7 @@ namespace MyWebAPI
             services.AddSwaggerGen(
                 options =>
                 {
-                    // redoc: https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#redoc-vendor-extensions
+                    // ref: https://github.com/Redocly/redoc/blob/master/docs/redoc-vendor-extensions.md#redoc-vendor-extensions
                     options.DocumentFilter<GroupedTagsDocumentFilter>();
                     options.DocumentFilter<TagDescriptionDocumentFilter>();
                     
@@ -135,59 +135,29 @@ namespace MyWebAPI
                     
                     // this is just an example and does not work as the API is not protected by security layer
                     // and the token values below are not valid
-                                   var securitySchema = new OpenApiSecurityScheme
+                    // ref: https://codeburst.io/api-security-in-swagger-f2afff82fb8e    
+
+                    var basicSecurityScheme = new OpenApiBasicSecurityScheme();                
+                    var aadSecurityScheme = new OpenApiAADSecurityScheme();
+                    var bearerSecurityScheme = new OpenApiBearerSecurityScheme();
+                    
+                    options.AddSecurityDefinition(basicSecurityScheme.Reference.Id, basicSecurityScheme);
+                    options.AddSecurityRequirement(new OpenApiSecurityRequirement
                     {
-                        Description =
-                            "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-                        Name = "Authorization",
-                        In = ParameterLocation.Header,
-                        Type = SecuritySchemeType.Http,
-                        Scheme = "bearer",
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    };
+                        {basicSecurityScheme, new string[] { }}
+                    });
 
-                    var aadSecuritySchema = new OpenApiSecurityScheme
+                    options.AddSecurityDefinition(aadSecurityScheme.Reference.Id, aadSecurityScheme);
+                    options.AddSecurityRequirement(new OpenApiSecurityRequirement
                     {
-                        Description =
-                            "JWT authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\" User interactively authenticates with Azure Active Directory",
-                        Name = "Authorization",
-                        Type = SecuritySchemeType.OAuth2,
-                        Flows = new OpenApiOAuthFlows
-                        {
-                            Implicit = new OpenApiOAuthFlow
-                            {
-                                TokenUrl = new Uri(
-                                    "https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"),
-                                AuthorizationUrl = new Uri(
-                                    "https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),
-                                Scopes =
-                                {
-                                    {"my_scope_1", "Scope 1"},
-                                    {"my_scope_2", "Scope 2"},
-                                    {"my_scope_3", "Scope 3"}
-                                }
-                            }
-                        },
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "AAD"
-                        }
-                    };
-
-                    options.AddSecurityDefinition("AAD", aadSecuritySchema);
-                    options.AddSecurityDefinition("Bearer", securitySchema);
-
-                    var securityRequirement = new OpenApiSecurityRequirement
+                        {aadSecurityScheme, new string[] { }}
+                    });
+                    
+                    options.AddSecurityDefinition(bearerSecurityScheme.Reference.Id, bearerSecurityScheme);
+                    options.AddSecurityRequirement(new OpenApiSecurityRequirement
                     {
-                        {securitySchema, new[] {"AAD", "Bearer"}}
-                    };
-
-                    options.AddSecurityRequirement(securityRequirement);
+                        {bearerSecurityScheme, new string[] { }}
+                    });
                 } );
             
             services.AddCors(options =>
