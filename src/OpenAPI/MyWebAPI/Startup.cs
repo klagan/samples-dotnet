@@ -135,26 +135,59 @@ namespace MyWebAPI
                     
                     // this is just an example and does not work as the API is not protected by security layer
                     // and the token values below are not valid
-                    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                                   var securitySchema = new OpenApiSecurityScheme
                     {
+                        Description =
+                            "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                        Name = "Authorization",
+                        In = ParameterLocation.Header,
+                        Type = SecuritySchemeType.Http,
+                        Scheme = "bearer",
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    };
+
+                    var aadSecuritySchema = new OpenApiSecurityScheme
+                    {
+                        Description =
+                            "JWT authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\" User interactively authenticates with Azure Active Directory",
+                        Name = "Authorization",
                         Type = SecuritySchemeType.OAuth2,
-                        Flows = new OpenApiOAuthFlows()
+                        Flows = new OpenApiOAuthFlows
                         {
                             Implicit = new OpenApiOAuthFlow
                             {
                                 TokenUrl = new Uri(
-                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"), 
+                                    "https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/token"),
                                 AuthorizationUrl = new Uri(
-                                    $"https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),  
+                                    "https://login.microsoftonline.com/putATenantIdHere/oauth2/v2.0/authorize"),
                                 Scopes =
                                 {
-                                    { "my_scope_1", "Scope 1"},
-                                    { "my_scope_2", "Scope 2"},
-                                    { "my_scope_3", "Scope 3"}
-                                },
+                                    {"my_scope_1", "Scope 1"},
+                                    {"my_scope_2", "Scope 2"},
+                                    {"my_scope_3", "Scope 3"}
+                                }
                             }
+                        },
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "AAD"
                         }
-                    });
+                    };
+
+                    options.AddSecurityDefinition("AAD", aadSecuritySchema);
+                    options.AddSecurityDefinition("Bearer", securitySchema);
+
+                    var securityRequirement = new OpenApiSecurityRequirement
+                    {
+                        {securitySchema, new[] {"AAD", "Bearer"}}
+                    };
+
+                    options.AddSecurityRequirement(securityRequirement);
                 } );
             
             services.AddCors(options =>

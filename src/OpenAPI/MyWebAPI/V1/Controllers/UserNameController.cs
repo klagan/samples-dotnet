@@ -26,7 +26,7 @@ namespace MyWebAPI.V1.Controllers
         /// <returns>Sample return description</returns>
         [HttpGet]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-        public IActionResult Get()
+        public IActionResult Get([FromHeader(Name = "X-MyCustomHeader")] string myCustomHeader)
         {
             return Ok(_userNameCompute.Get());
         }
