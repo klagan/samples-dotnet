@@ -16,6 +16,7 @@ namespace MyWebAPI
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
+    using Microsoft.Extensions.FileProviders;
     using Microsoft.Extensions.Options;
     using Swashbuckle.AspNetCore.SwaggerGen;
     using Microsoft.OpenApi.Models;
@@ -182,6 +183,8 @@ namespace MyWebAPI
             app.UseCors("CorsPolicy");
             
             // app.UseHttpsRedirection();
+            
+            app.UseStaticFiles();
 
             app.UseSwagger();
 

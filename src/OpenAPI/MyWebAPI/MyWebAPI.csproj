@@ -18,6 +18,10 @@
       <Folder Include="V2\Models" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="wwwroot\openapi.htm" />
+    </ItemGroup>
+
     <PropertyGroup>
         <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
         <NoWarn>1591</NoWarn>

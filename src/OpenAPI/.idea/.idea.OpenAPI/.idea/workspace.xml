@@ -22,7 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c559d20-f26a-4ab1-a452-42822be54b43" name="Default Changelist" comment="" />
+    <list default="true" id="4c559d20-f26a-4ab1-a452-42822be54b43" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/MyWebAPI/wwwroot/docs/v1/openapi.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyWebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +59,6 @@
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/UserNameController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Controllers/V1/WeatherForecastController.cs" />
-        <option value="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" />
         <option value="$PROJECT_DIR$/MyWebAPI/V2/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/UserNameController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Properties/launchSettings.json" />
@@ -60,13 +66,14 @@
         <option value="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/ConfigureSwaggerOptions.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/SwaggerDefaultValues.cs" />
-        <option value="$PROJECT_DIR$/MyWebAPI/Startup.cs" />
         <option value="$PROJECT_DIR$/MyWeather.Models/SampleModel.cs" />
         <option value="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiDefaultValues.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiGenerationOptions.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/GroupedTagsDocumentFilter.cs" />
+        <option value="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" />
+        <option value="$PROJECT_DIR$/MyWebAPI/Startup.cs" />
       </list>
     </option>
   </component>
@@ -125,6 +132,7 @@
       <workItem from="1618929760580" duration="1993000" />
       <workItem from="1620646873435" duration="12019000" />
       <workItem from="1620728850483" duration="546000" />
+      <workItem from="1620749980113" duration="1486000" />
     </task>
     <task id="LOCAL-00001" summary="- add openapi example">
       <created>1618134291731</created>
@@ -297,22 +305,22 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="659" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1608.1023@72.27.1608.1023" timestamp="1618136088814" />
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1620661648037">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1620751174309">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1620661648037" />
-    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1620661648037">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1620751174309" />
+    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1620751174307">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1620661648037" />
-    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1620661648036">
+    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1620751174307" />
+    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1620751174307">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1620661648036" />
-    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1620661648037">
+    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1620751174307" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1620751174308">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1620661648037" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1620751174308" />
     <state width="1562" height="179" key="GridCell.Tab.1.bottom" timestamp="1620661648021">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>

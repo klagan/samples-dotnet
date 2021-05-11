@@ -36,11 +36,10 @@ services:
     network_mode: host
     restart: "no"
     # ports are ignored when we set the network to host
-    ports:
-      - 8080:8081
     environment:
       - SPEC_URL=http://localhost:5000/swagger/v1/swagger.yaml
-      - SPEC_URL3=https://kam-redoc.azurewebsites.net/swagger/v1/swagger.json
-      - SPEC_URL1=https://petstore3.swagger.io/api/v3/openapi.json
-      - SPEC_URL2=https://kam-redoc.azurewebsites.net/swagger/v1/swagger.yaml
+      # kebab casing
+      # ref: https://github.com/Redocly/redoc#redoc-theme-object
+      # ref: https://stackoverflow.com/questions/52763862/how-to-add-option-in-redoc
+      - REDOC_OPTIONS=hide-download-button disable-search
  

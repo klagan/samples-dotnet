@@ -5,6 +5,47 @@ This is a sample WebAPI documented using the docker verison of the open source [
 
 It works in accordance with the [OpenAPI](https://swagger.io/resources/open-api/) specification.
 
+## Getting started
+
+### Build containers
+
+```zsh
+docker-compose build
+```
+
+### Start up containers
+
+```zsh
+docker-compose up -d
+```
+
+### Access WebAPI deployment
+
+Navigate to `http://localhost:5000`
+
+### Access dynamic OpenAPI documentation
+
+Navigate to `http://localhost`
+
+### Access static OpenAPI documentation
+
+Navigate to `http://localhost:5000/docs/v1/openapi.htm`
+
+### Stop containers
+
+```zsh
+docker-compose down
+```
+
+## Create static (bundled) version of `redoc` documentation
+
+```bash
+# openapi.htm is the output name
+# My OpenAPI is the tab name
+# swagger.yaml is the original openAPI specification file
+npx redoc-cli bundle --output openapi.htm --title "My OpenAPI" --ext yaml --options.theme.colors.primary.main=blue swagger.yaml
+```
+
 ## Acknowledgements
 
 - [ReDoc](https://github.com/Redocly/redoc)
