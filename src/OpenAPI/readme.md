@@ -37,7 +37,7 @@ Navigate to `http://localhost:5000/docs/v1/openapi.htm`
 docker-compose down
 ```
 
-## Create static (bundled) version of `redoc` documentation
+### Create static (bundled) version of `redoc` documentation
 
 ```bash
 # openapi.htm is the output name
