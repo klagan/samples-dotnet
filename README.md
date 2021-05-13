@@ -1,6 +1,6 @@
 # sample-dotnet
 
---test GPG - added new key to gh - with -S command
+--testing autosign
 
 `git commit -S -m "my verified commit"`
 
