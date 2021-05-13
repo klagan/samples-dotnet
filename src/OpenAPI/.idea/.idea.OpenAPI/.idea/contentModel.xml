@@ -86,6 +86,7 @@
               <e p="openapi.htm" t="Include" />
             </e>
           </e>
+          <e p="openapi.htm" t="Include" />
         </e>
       </e>
       <e p="OpenAPI.sln" t="IncludeFlat" />

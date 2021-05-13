@@ -209,6 +209,8 @@ namespace MyWebAPI
                     options.OAuthScopes("my_scope_1", "my_scope_3");
                 });
 
+            app.UseReDoc();
+
             app.UseRouting();
 
             app.UseAuthorization();
