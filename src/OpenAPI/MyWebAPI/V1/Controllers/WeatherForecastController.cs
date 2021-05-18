@@ -47,8 +47,8 @@ namespace MyWebAPI.V1.Controllers
         /// A sample GET method
         /// This is an example of a GET operation for the WeatherForecast API
         /// </summary>
-        /// <param name="sampleModel">a sample model value</param>
-        /// <param name="someId">a sample ID property</param>
+        // /// <param name="sampleModel">a sample model value</param>
+        // /// <param name="someId">a sample ID property</param>
         /// <returns>a sample return value</returns>
         [HttpGet("SampleGet")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
@@ -68,6 +68,21 @@ namespace MyWebAPI.V1.Controllers
         public IActionResult SamplePost([FromBody] SampleModel sampleModel, [FromQuery] int someId)
         {
             return Created(new System.Uri("/SamplePost", System.UriKind.Relative), $"{sampleModel.Id} => {sampleModel.Description} => {someId}");
+        }
+
+        /// <summary>
+        /// this is the short summary of the operation.
+        /// </summary>
+        /// <remarks>this is a longer description of the API operation</remarks>
+        /// <param name="sampleModel">this is the description for a sample model</param>
+        /// <param name="myId" example="150273">this is the description for <b><i>myId</i></b></param>
+        /// <returns>this is the description of what the return value should be</returns>
+        /// <response code="200">this is a description for the response code (200)</response>
+        [HttpGet("SampleMethod")]
+        [ProducesResponseType(typeof(SampleModel), StatusCodes.Status200OK)]
+        public IActionResult SampleMethod([FromQuery] SampleModel sampleModel, [FromQuery] int myId)
+        {
+            return Ok(new SampleModel());
         }
     }
 }
