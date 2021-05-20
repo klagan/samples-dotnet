@@ -75,7 +75,7 @@
         /// <summary>
         ///     this is the short summary of the operation.
         /// </summary>
-        /// <remarks>this is a longer description of the API operation. <a href="#section/Authentication">go to authentication section (test)</a>
+        /// <remarks>this is a longer description of the API operation. <a href="https://www.google.com">google</a> <a href="#section/Authentication">go to authentication section (test)</a>
         /// testing anchor redoc: &lt;a href="#section/Authentication"&gt;TestPost&lt;/a&gt;
         /// testing anchor swagger: &lt;a href="?filter=/#Authentication"&gt;TestPost&lt;/a&gt;
         /// </remarks>

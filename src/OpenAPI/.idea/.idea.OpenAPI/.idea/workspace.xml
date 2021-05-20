@@ -23,27 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c559d20-f26a-4ab1-a452-42822be54b43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/SampleModelSchemaFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.OpenAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyUserName.Bll/Compute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyUserName.Bll/Compute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWeather.Bll/Compute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWeather.Bll/Compute.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyWeather.Models/SampleModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWeather.Models/SampleModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWeather.Models/WeatherForecast.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/GroupedTagsDocumentFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/GroupedTagsDocumentFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiDefaultValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiDefaultValues.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiGenerationOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/MyOpenApiGenerationOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/OpenApiAADSecurityScheme.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/OpenApiAADSecurityScheme.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/OpenApiBasicSecurityScheme.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/OpenApiBasicSecurityScheme.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/OpenApiBearerSecurityScheme.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/OpenApiBearerSecurityScheme.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/TagDescriptionDocumentFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/TagDescriptionDocumentFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/V1/Controllers/UserNameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/V1/Controllers/UserNameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyWebAPI/V1/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/V1/Controllers/WeatherForecastController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/UserNameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/V2/Controllers/WeatherForecastController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyWebAPI/wwwroot/docs/v1/openapi.htm" beforeDir="false" afterPath="$PROJECT_DIR$/MyWebAPI/wwwroot/docs/v1/openapi.htm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +37,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1E25F52D-45CB-4EEA-99D3-5259A6B3CE99/5/DiagnosticsLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/DF9D541E-58AC-46EB-9D52-95A12B55C0C5/F3/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/V2/Controllers/UserNameController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2A4D67A0-8B9A-4D8C-8E39-4EDD51F04B14/6/SwaggerGenOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C32918CC-D8B1-43CA-BA21-E0923013D279/84/fc6bf9a5/ISchemaFilter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI/V1/Controllers/UserNameController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -91,9 +70,9 @@
         <option value="$PROJECT_DIR$/MyWebAPI/MyWebAPI.csproj" />
         <option value="$PROJECT_DIR$/MyWebAPI/MyOpenApiConfiguration/SampleModelSchemaFilter.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/Startup.cs" />
-        <option value="$PROJECT_DIR$/MyWeather.Models/SampleModel.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/WeatherForecastController.cs" />
         <option value="$PROJECT_DIR$/MyWebAPI/V1/Controllers/UserNameController.cs" />
+        <option value="$PROJECT_DIR$/MyWeather.Models/SampleModel.cs" />
       </list>
     </option>
   </component>
@@ -157,6 +136,7 @@
       <workItem from="1621011276938" duration="91000" />
       <workItem from="1621346338684" duration="5392000" />
       <workItem from="1621508915920" duration="4550000" />
+      <workItem from="1621513945894" duration="1644000" />
     </task>
     <task id="LOCAL-00001" summary="- add openapi example">
       <created>1618134291731</created>
@@ -349,22 +329,22 @@
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
     <state x="659" y="296" width="424" height="491" key="FileChooserDialogImpl/72.27.1608.1023@72.27.1608.1023" timestamp="1618136088814" />
-    <state width="1562" height="179" key="GridCell.Tab.0.bottom" timestamp="1621513523078">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom" timestamp="1621515740246">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="179" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1621513523078" />
-    <state width="1562" height="179" key="GridCell.Tab.0.center" timestamp="1621513523074">
+    <state width="1562" height="266" key="GridCell.Tab.0.bottom/72.27.1608.1023@72.27.1608.1023" timestamp="1621515740246" />
+    <state width="1562" height="266" key="GridCell.Tab.0.center" timestamp="1621515740245">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="179" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1621513523074" />
-    <state width="1562" height="179" key="GridCell.Tab.0.left" timestamp="1621513523073">
+    <state width="1562" height="266" key="GridCell.Tab.0.center/72.27.1608.1023@72.27.1608.1023" timestamp="1621515740245" />
+    <state width="1562" height="266" key="GridCell.Tab.0.left" timestamp="1621515740245">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="179" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1621513523073" />
-    <state width="1562" height="179" key="GridCell.Tab.0.right" timestamp="1621513523074">
+    <state width="1562" height="266" key="GridCell.Tab.0.left/72.27.1608.1023@72.27.1608.1023" timestamp="1621515740245" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right" timestamp="1621515740245">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
-    <state width="1562" height="179" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1621513523074" />
+    <state width="1562" height="266" key="GridCell.Tab.0.right/72.27.1608.1023@72.27.1608.1023" timestamp="1621515740245" />
     <state width="1562" height="179" key="GridCell.Tab.1.bottom" timestamp="1621513523080">
       <screen x="72" y="27" width="1608" height="1023" />
     </state>
