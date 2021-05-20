@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using MyWeather.Bll;
-using MyWeather.Models;
-
-namespace MyWebAPI.V2.Controllers
+﻿namespace MyWebAPI.V2.Controllers
 {
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using MyWeather.Bll;
+    using MyWeather.Models;
+
     [ApiController]
-    [ApiVersion( "2.0" )]
+    [ApiVersion("2.0")]
     [ApiExplorerSettings(GroupName = "v2")]
     // [Route("[controller]")]
-    [Route( "api/v{version:apiVersion}/[controller]" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
@@ -24,7 +24,7 @@ namespace MyWebAPI.V2.Controllers
         }
 
         /// <summary>
-        /// Test description for 'GET' method
+        ///     Test description for 'GET' method
         /// </summary>
         /// <returns>Sample return description</returns>
         /// <response code="200">Returns a list of weather forecasts</response>
@@ -36,7 +36,7 @@ namespace MyWebAPI.V2.Controllers
         }
 
         /// <summary>
-        /// A sample GET method
+        ///     A sample GET method
         /// </summary>
         /// <param name="sampleModel">a sample model value</param>
         /// <param name="someId">a sample ID property</param>
@@ -49,7 +49,7 @@ namespace MyWebAPI.V2.Controllers
         }
 
         /// <summary>
-        /// A sample POST method
+        ///     A sample POST method
         /// </summary>
         /// <param name="sampleModel">a sample model value</param>
         /// <param name="someId">a sample ID property</param>

@@ -1,17 +1,17 @@
 ﻿namespace MyWeather.Bll
 {
-    using Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Models;
 
     public class Compute
     {
-        private static readonly string[] Summaries = new[]
+        private static readonly string[] Summaries =
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-        
+
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();

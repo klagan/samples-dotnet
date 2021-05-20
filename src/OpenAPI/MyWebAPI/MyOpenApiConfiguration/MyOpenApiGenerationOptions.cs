@@ -1,29 +1,37 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Interfaces;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
 namespace MyWebAPI.MyOpenApiConfiguration
 {
+    using System;
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Mvc.ApiExplorer;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Options;
+    using Microsoft.OpenApi.Any;
+    using Microsoft.OpenApi.Interfaces;
+    using Microsoft.OpenApi.Models;
+    using Swashbuckle.AspNetCore.SwaggerGen;
+
     /// <summary>
-    /// Configures the Swagger generation options.
+    ///     Configures the Swagger generation options.
     /// </summary>
-    /// <remarks>This allows API versioning to define a Swagger document per API version after the
-    /// <see cref="IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
+    /// <remarks>
+    ///     This allows API versioning to define a Swagger document per API version after the
+    ///     <see cref="IApiVersionDescriptionProvider" /> service has been resolved from the service container.
+    /// </remarks>
     public class MyOpenApiGenerationOptions : IConfigureOptions<SwaggerGenOptions>
     {
-        readonly IApiVersionDescriptionProvider _provider;
+        private readonly IApiVersionDescriptionProvider _provider;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyOpenApiGenerationOptions"/> class.
+        ///     Initializes a new instance of the <see cref="MyOpenApiGenerationOptions" /> class.
         /// </summary>
-        /// <param name="provider">The <see cref="IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
-        public MyOpenApiGenerationOptions(IApiVersionDescriptionProvider provider) => this._provider = provider;
+        /// <param name="provider">
+        ///     The <see cref="IApiVersionDescriptionProvider">provider</see> used to generate Swagger
+        ///     documents.
+        /// </param>
+        public MyOpenApiGenerationOptions(IApiVersionDescriptionProvider provider)
+        {
+            _provider = provider;
+        }
 
         /// <inheritdoc />
         public void Configure(SwaggerGenOptions options)
@@ -31,10 +39,8 @@ namespace MyWebAPI.MyOpenApiConfiguration
             // add a swagger document for each discovered API version
             // note: you might choose to skip or document deprecated API versions differently
             foreach (var description in _provider.ApiVersionDescriptions)
-            {
                 options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
-            }
-            
+
             // parameterise the server names here
             // these are the base url where an instance of the API is hosted
             options.AddServer(new OpenApiServer
@@ -49,9 +55,9 @@ namespace MyWebAPI.MyOpenApiConfiguration
             });
         }
 
-        static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
+        private static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
         {
-            var info = new OpenApiInfo()
+            var info = new OpenApiInfo
             {
                 Title = "My Sample Web API",
                 Version = description.ApiVersion.ToString(),
@@ -72,13 +78,13 @@ This is a child section
 - API Key
 - OAuth2
 OAuth2 - an open protocol to allow secure authorization in a simple and standard method from web, mobile and desktop applications.",
-                Contact = new OpenApiContact()
+                Contact = new OpenApiContact
                 {
                     Name = "API Support",
                     Email = "apisupport@sample.laganlabs.it",
                     Url = new Uri("https://www.laganlabs.it")
                 },
-                License = new OpenApiLicense()
+                License = new OpenApiLicense
                 {
                     Name = "MIT License",
                     Url = new Uri("https://opensource.org/licenses/MIT")
@@ -100,10 +106,7 @@ OAuth2 - an open protocol to allow secure authorization in a simple and standard
                 }
             };
 
-            if (description.IsDeprecated)
-            {
-                info.Description += " This API version has been deprecated.";
-            }
+            if (description.IsDeprecated) info.Description += " This API version has been deprecated.";
 
             return info;
         }

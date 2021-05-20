@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using MyWeather.Bll;
-using MyWeather.Models;
-
-namespace MyWebAPI.V1.Controllers
+﻿namespace MyWebAPI.V1.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using MyWeather.Bll;
+    using MyWeather.Models;
+
     [ApiController]
-    [ApiVersion( "1.0" )]
+    [ApiVersion("1.0")]
     [ApiExplorerSettings(GroupName = "v1")]
     // [Route("[controller]")]
-    [Route( "api/v{version:apiVersion}/[controller]" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
@@ -24,7 +25,7 @@ namespace MyWebAPI.V1.Controllers
         }
 
         /// <summary>
-        /// Test description for 'GET' operation
+        ///     Test description for 'GET' operation
         /// </summary>
         /// <returns>Sample return description</returns>
         /// <remarks>This operation retrieves a weather random forecast. Here is where I would write more detailed information</remarks>
@@ -58,7 +59,7 @@ namespace MyWebAPI.V1.Controllers
         }
 
         /// <summary>
-        /// A sample POST method. Ths is a sample POST operation for the WeatherForecast API
+        ///     A sample POST method. Ths is a sample POST operation for the WeatherForecast API
         /// </summary>
         /// <param name="sampleModel">a sample model value</param>
         /// <param name="someId">a sample ID property</param>
@@ -67,15 +68,24 @@ namespace MyWebAPI.V1.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         public IActionResult SamplePost([FromBody] SampleModel sampleModel, [FromQuery] int someId)
         {
-            return Created(new System.Uri("/SamplePost", System.UriKind.Relative), $"{sampleModel.Id} => {sampleModel.Description} => {someId}");
+            return Created(new Uri("/SamplePost", UriKind.Relative),
+                $"{sampleModel.Id} => {sampleModel.Description} => {someId}");
         }
 
         /// <summary>
-        /// this is the short summary of the operation.
+        ///     this is the short summary of the operation.
         /// </summary>
-        /// <remarks>this is a longer description of the API operation</remarks>
-        /// <param name="sampleModel">this is the description for a sample model</param>
-        /// <param name="myId" example="150273">this is the description for <b><i>myId</i></b></param>
+        /// <remarks>this is a longer description of the API operation. <a href="#section/Authentication">go to authentication section (test)</a>
+        /// testing anchor redoc: &lt;a href="#section/Authentication"&gt;TestPost&lt;/a&gt;
+        /// testing anchor swagger: &lt;a href="?filter=/#Authentication"&gt;TestPost&lt;/a&gt;
+        /// </remarks>
+        /// <param name="sampleModel">this is the description for a sample model. testing anchor: <a href="?filter=TestPost">TestPost</a></param>
+        /// <param name="myId" example="150273">
+        ///     this is the description for
+        ///     <b>
+        ///         <i>myId</i>
+        ///     </b>
+        /// </param>
         /// <returns>this is the description of what the return value should be</returns>
         /// <response code="200">this is a description for the response code (200)</response>
         [HttpGet("SampleMethod")]

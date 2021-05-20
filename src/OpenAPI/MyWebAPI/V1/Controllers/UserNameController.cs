@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using MyUserName.Bll;
-
 namespace MyWebAPI.V1.Controllers
 {
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using MyUserName.Bll;
+
     [ApiController]
-    [ApiVersion( "1.0" )]
+    [ApiVersion("1.0")]
     [ApiExplorerSettings(GroupName = "v1")]
-    [Route( "api/v{version:apiVersion}/[controller]" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class UserNameController : ControllerBase
     {
         private readonly ILogger<UserNameController> _logger;
@@ -21,12 +21,13 @@ namespace MyWebAPI.V1.Controllers
         }
 
         /// <summary>
-        /// Test description for 'GET' method
+        ///     Test description for 'GET' method
         /// </summary>
         /// <returns>Sample return description</returns>
         [HttpGet]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-        public IActionResult Get([FromHeader(Name = "X-MyCustomHeader")] string myCustomHeader)
+        public IActionResult Get([FromHeader(Name = "X-MyCustomHeader")]
+                                 string myCustomHeader)
         {
             return Ok(_userNameCompute.Get());
         }

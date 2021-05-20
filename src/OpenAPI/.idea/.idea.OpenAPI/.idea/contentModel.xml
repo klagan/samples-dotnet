@@ -49,6 +49,7 @@
           <e p="OpenApiAADSecurityScheme.cs" t="Include" />
           <e p="OpenApiBasicSecurityScheme.cs" t="Include" />
           <e p="OpenApiBearerSecurityScheme.cs" t="Include" />
+          <e p="SampleModelSchemaFilter.cs" t="Include" />
           <e p="TagDescriptionDocumentFilter.cs" t="Include" />
         </e>
         <e p="MyWebAPI.csproj" t="IncludeRecursive" />

@@ -1,12 +1,10 @@
 namespace MyWebAPI.MyOpenApiConfiguration
 {
-    using System.Buffers.Text;
     using Microsoft.OpenApi.Models;
 
     public class OpenApiBearerSecurityScheme : OpenApiSecurityScheme
     {
-        public OpenApiBearerSecurityScheme() 
-            : base()
+        public OpenApiBearerSecurityScheme()
         {
             Description =
                 "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"";

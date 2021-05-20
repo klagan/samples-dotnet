@@ -6,7 +6,6 @@ namespace MyWebAPI.MyOpenApiConfiguration
     public class OpenApiAADSecurityScheme : OpenApiSecurityScheme
     {
         public OpenApiAADSecurityScheme()
-            : base()
         {
             Description =
                 "JWT authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\" User interactively authenticates with Azure Active Directory";

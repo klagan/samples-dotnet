@@ -7,6 +7,8 @@ namespace MyWebAPI
 
     public class SampleModelSchemaFilter : ISchemaFilter
     {
+        // ref: https://stackoverflow.com/questions/58681260/how-to-write-ischemafilter-for-problemdetails-in-asp-net-core-3-swashbuckle-5
+
         public void Apply(OpenApiSchema schema, SchemaFilterContext context)
         {
             if (context.Type == typeof(SampleModel))
@@ -24,7 +26,6 @@ namespace MyWebAPI
                     ["Description"] = new OpenApiString("sample value"),
                     ["Random"] = new OpenApiString("random thing example")
                 };
-                
             }
         }
     }
