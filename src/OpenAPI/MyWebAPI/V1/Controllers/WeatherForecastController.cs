@@ -41,6 +41,7 @@
         [ProducesResponseType(typeof(IEnumerable<WeatherForecast>), StatusCodes.Status200OK)]
         public IActionResult Get()
         {
+            _logger.Log(LogLevel.Information, "Im in the GET method");
             return Ok(_weatherForecastCompute.Get());
         }
 
@@ -55,6 +56,7 @@
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public IActionResult SampleGet([FromQuery] SampleModel sampleModel, [FromQuery] int someId)
         {
+            _logger.Log(LogLevel.Warning, "Im in the sample GET method");
             return Ok($"{sampleModel.Id} => {sampleModel.Description} => {someId}");
         }
 
