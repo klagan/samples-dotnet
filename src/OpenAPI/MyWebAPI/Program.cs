@@ -21,7 +21,9 @@ namespace MyWebAPI
                     logging.AddConsole(o => o.IncludeScopes = true);
                     logging.AddDebug();
                     logging.AddConfiguration(hostingContext.Configuration);
-                    logging.AddFile(hostingContext.Configuration.GetSection("Logging"));
+                    // include if you want to log to a file.  
+                    // configuration is in the logging section of appSettings.json
+                    // logging.AddFile(hostingContext.Configuration.GetSection("Logging"));
                 })
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
         }
