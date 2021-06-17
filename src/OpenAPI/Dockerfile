@@ -1,17 +1,38 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-focal AS build
 
 # copy the source files
-COPY . /build/src
+# COPY . /build/src
 
-WORKDIR /build/src/MyWebAPI
+# WORKDIR /src
+# COPY ["OpenAPI.sln", "/build/src"]
+# RUN dotnet restore "OpenAPI.sln"
+# COPY . .
+# WORKDIR "/src/Samples.WebApi"
+# RUN dotnet build "Samples.WebApi.csproj" -c Release -o /app/build
+
+# WORKDIR /build/src/MyWebAPI
+
+
+
+WORKDIR /src
+COPY ["MyWebAPI/MyWebAPI.csproj", "MyWebAPI/"]
+COPY ["MyWeather.Models/MyWeather.Models.csproj", "MyWeather.Models/"]
+COPY ["MyWeather.Bll/MyWeather.Bll.csproj", "MyWeather.Bll/"]
+COPY ["MyUserName.Bll/MyUserName.Bll.csproj", "MyUserName.Bll/"]
+COPY ["OpenAPI.sln", "./"]
+RUN dotnet restore "/src/OpenAPI.sln"
+COPY . .
+RUN dotnet build "/src/OpenAPI.sln" -c Release -o /app/build
+
+
+FROM build AS publish
+WORKDIR /app/build
 
 # add the dotnet swagger tool
 # allows openapi file extraction 
 RUN dotnet new tool-manifest \
     && dotnet tool install --version 6.1.4 Swashbuckle.AspNetCore.Cli \
-    && dotnet tool list
-
-WORKDIR /build
+    && dotnet tool list 
 
 # publish output (restore, build and export)
 RUN dotnet publish \
@@ -21,13 +42,12 @@ RUN dotnet publish \
   # /p:PublishSingleFile=true \
   -c Release \
   # --configfile nuget.config \
-  -o ./output \
-  src/MyWebAPI/MyWebAPI.csproj
+  -o /app/publish \
+  /src/OpenAPI.sln
 
-WORKDIR /build/src/MyWebAPI
-
-RUN mkdir -p /build/output/wwwroot/api-docs/v1/ \
-    && dotnet swagger tofile --output /build/output/wwwroot/api-docs/v1/openapi.yml /build/output/MyWebAPI.dll v1 
+RUN mkdir -p /app/publish/wwwroot/api-docs/v1/ 
+RUN cat .config/dotnet-tools.json   
+RUN dotnet swagger tofile --output /app/publish/wwwroot/api-docs/v1/openapi.yml /app/publish/MyWebAPI.dll v1 
 
 
 FROM node:latest as swagger_build
@@ -35,7 +55,7 @@ FROM node:latest as swagger_build
 RUN apt-get update && \
     apt-get upgrade -y
 
-COPY --from=build /build/output/ .
+COPY --from=publish /app/publish/ .
 
 RUN npx redoc-cli bundle --output ./wwwroot/api-docs/v1/openapi.htm --title "Version 1.0.0"  --options.theme.colors.primary.main=blue ./wwwroot/api-docs/v1/openapi.yml
 

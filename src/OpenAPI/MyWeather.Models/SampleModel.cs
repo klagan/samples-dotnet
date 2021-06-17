@@ -8,12 +8,12 @@ namespace MyWeather.Models
     public class SampleModel
     {
         /// <summary>
-        /// this is a description for the *id* property of the **SampleModel** class.
+        /// this is a description for the *id* property of the **SampleModel** class (1-100).
         /// - one item
         /// - two item
         /// - three `item`
         /// </summary>
-        /// <example>9991001999</example>
+        /// <example>99</example>
         [Required(ErrorMessage = "{0} is required")]
         [Range(1, 100, ErrorMessage = "ID must be between {1} and {2}")]
         public int Id { get; set; }
