@@ -11,7 +11,6 @@
     [ApiController]
     [ApiVersion("1.0")]
     [ApiExplorerSettings(GroupName = "v1")]
-    // [Route("[controller]")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
@@ -49,8 +48,8 @@
         /// A sample GET method
         /// This is an example of a GET operation for the WeatherForecast API
         /// </summary>
-        // /// <param name="sampleModel">a sample model value</param>
-        // /// <param name="someId">a sample ID property</param>
+        /// <param name="sampleModel">a sample model value</param>
+        /// <param name="someId">a sample ID property</param>
         /// <returns>a sample return value</returns>
         [HttpGet("SampleGet")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
