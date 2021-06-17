@@ -25,7 +25,10 @@ namespace MyWebAPI
                     // configuration is in the logging section of appSettings.json
                     // logging.AddFile(hostingContext.Configuration.GetSection("Logging"));
                 })
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
         }
     }
 }

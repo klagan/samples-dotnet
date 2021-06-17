@@ -1,19 +1,4 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-focal AS build
-
-# copy the source files
-# COPY . /build/src
-
-# WORKDIR /src
-# COPY ["OpenAPI.sln", "/build/src"]
-# RUN dotnet restore "OpenAPI.sln"
-# COPY . .
-# WORKDIR "/src/Samples.WebApi"
-# RUN dotnet build "Samples.WebApi.csproj" -c Release -o /app/build
-
-# WORKDIR /build/src/MyWebAPI
-
-
-
 WORKDIR /src
 COPY ["MyWebAPI/MyWebAPI.csproj", "MyWebAPI/"]
 COPY ["MyWeather.Models/MyWeather.Models.csproj", "MyWeather.Models/"]
@@ -50,24 +35,26 @@ RUN cat .config/dotnet-tools.json
 RUN dotnet swagger tofile --output /app/publish/wwwroot/api-docs/v1/openapi.yml /app/publish/MyWebAPI.dll v1 
 
 
+RUN apt-get update && apt-get install -y tree && tree
+
 FROM node:latest as swagger_build
 
 RUN apt-get update && \
     apt-get upgrade -y
 
-COPY --from=publish /app/publish/ .
+COPY --from=publish /app/publish/ /output
 
-RUN npx redoc-cli bundle --output ./wwwroot/api-docs/v1/openapi.htm --title "Version 1.0.0"  --options.theme.colors.primary.main=blue ./wwwroot/api-docs/v1/openapi.yml
+RUN npx redoc-cli bundle --output /output/wwwroot/api-docs/v1/openapi.htm --title "Version 1.0.0"  --options.theme.colors.primary.main=blue /output/wwwroot/api-docs/v1/openapi.yml
 
 
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1.10-bionic AS final
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends && \
-    apt-get install -y apache2-utils && \
-    apt-get install -y libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev libgdiplus && \
-    apt upgrade -y
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends && \
+#     apt-get install -y apache2-utils && \
+#     apt-get install -y libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev libgdiplus && \
+#     apt upgrade -y
 
 RUN adduser \
   --disabled-password \
@@ -76,7 +63,7 @@ RUN adduser \
   && chown -R app /app
 USER app
 
-COPY --chown=app --from=swagger_build / /app
+COPY --chown=app --from=swagger_build /output /app
 
 WORKDIR /app
 

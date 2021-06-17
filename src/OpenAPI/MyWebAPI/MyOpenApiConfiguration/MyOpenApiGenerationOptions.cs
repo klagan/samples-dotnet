@@ -2,7 +2,9 @@ namespace MyWebAPI.MyOpenApiConfiguration
 {
     using System;
     using System.Collections.Generic;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc.ApiExplorer;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Options;
     using Microsoft.OpenApi.Any;
@@ -31,6 +33,7 @@ namespace MyWebAPI.MyOpenApiConfiguration
         public MyOpenApiGenerationOptions(IApiVersionDescriptionProvider provider)
         {
             _provider = provider;
+            
         }
 
         /// <inheritdoc />
@@ -40,17 +43,24 @@ namespace MyWebAPI.MyOpenApiConfiguration
             // note: you might choose to skip or document deprecated API versions differently
             foreach (var description in _provider.ApiVersionDescriptions)
                 options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
-
+            
             // parameterise the server names here
             // these are the base url where an instance of the API is hosted
             options.AddServer(new OpenApiServer
             {
-                Description = "Local Host",
-                Url = "http://localhost:5000"
+                Description = "Local host",
+                Url = string.Empty
             });
+            
             options.AddServer(new OpenApiServer
             {
-                Description = "Remote Host (fake)",
+                Description = "Some host",
+                Url = "http://localhost:5000"
+            });
+            
+            options.AddServer(new OpenApiServer
+            {
+                Description = "Another Host (fake)",
                 Url = "http://remotehost:5000"
             });
         }
