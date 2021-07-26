@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table table-sm table-striped table-hover border-bottom">
+    <tr>
+        <td class="d-none d-lg-table-cell">Is Containerised</td>
+        <td />
+        <td>@ViewBag.IsContainer</td>
+    </tr>
+    <tr>
+        <td>Machine Name</td>
+        <td />
+        <td>@ViewBag.MachineName</td>
+    </tr>
+     <tr>
+            <td>Custom Environment Variable</td>
+            <td />
+            <td>@ViewBag.EnvironmentVar</td>
+        </tr>
+</table>

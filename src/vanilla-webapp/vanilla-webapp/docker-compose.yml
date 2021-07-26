@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+
+  kamtest:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#      args:
+#        - VersionPrefix=
+#        - VersionSuffix=local
+#        - NUGET_UID
+#        - NUGET_PWD
+#        - SONARQUBE_PROJECT_URL
+#        - SONARQUBE_PROJECT_KEY
+#        - SONARQUBE_PROJECT_LOGIN
+#    image: kamtest:v1
+    image: ghcr.io/klagan/vanilla-webapp:1.0
+    container_name: kamtest
+#    restart: "no"
+    ports:
+      - 5001:5001
+#    healthcheck:
+#      test: curl --fail -s http://localhost:5001/index.html || exit 1
+#      interval: 30s
+#      timeout: 10s
+#      retries: 3
+#      start_period: 40s
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '0.5'
+#          memory: 500M
+#    volumes:
+#      - type: bind
+#        source: ./override
+#        target: /ap§p/override
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=true
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5001
