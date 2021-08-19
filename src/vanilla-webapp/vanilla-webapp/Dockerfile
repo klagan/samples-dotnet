@@ -10,5 +10,5 @@ RUN dotnet publish --output /app/ --configuration Release
 FROM mcr.microsoft.com/dotnet/aspnet:3.1
 WORKDIR /app
 COPY --from=builder /app .
-EXPOSE 5001
+EXPOSE 5000
 ENTRYPOINT ["dotnet", "vanilla-webapp.dll"]
