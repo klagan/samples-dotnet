@@ -46,6 +46,41 @@ docker-compose down
 npx redoc-cli bundle --output openapi.htm --title "My OpenAPI" --ext yaml --options.theme.colors.primary.main=blue swagger.yaml
 ```
 
+## JMeter tests
+
+### Create a dashboard
+
+- add `Simple Data Writer` to test plan/thread group
+  
+- add the following to /jmeter/bin/user.properties
+
+```bash
+jmeter.save.saveservice.bytes=true
+jmeter.save.saveservice.label=true
+jmeter.save.saveservice.latency=true
+jmeter.save.saveservice.response_code=true
+jmeter.save.saveservice.response_message=true
+jmeter.save.saveservice.successful=true
+jmeter.save.saveservice.thread_counts=true
+jmeter.save.saveservice.thread_name=true
+jmeter.save.saveservice.time=true
+jmeter.save.saveservice.timestamp_format=ms
+jmeter.save.saveservice.timestamp_format=yyyy/MM/dd HH:mm:ss
+jmeter.save.saveservice.print_field_names=true
+```
+
+- run the following shell command
+
+```bash
+# -n non gui mode
+# -t test file
+# -l logfile
+# -e generate report dashboard after the load test
+# -f delete log file before running tests
+# -o dashboard folder output
+jmeter -n -t sample.jmx -l results.jtl -e -f -o dashboard
+```
+
 ## Acknowledgements
 
 - [ReDoc](https://github.com/Redocly/redoc)

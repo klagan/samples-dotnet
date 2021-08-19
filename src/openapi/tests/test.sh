@@ -1,0 +1,1 @@
+jmeter -n -t sample.jmx -l results.jtl -e -f -o dashboard

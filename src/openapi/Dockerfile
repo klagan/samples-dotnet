@@ -67,11 +67,9 @@ COPY --chown=app --from=swagger_build /output /app
 
 WORKDIR /app
 
-ENV ASPNETCORE_URLS=http://+:${PORT} \
-DOTNET_USE_POLLING_FILE_WATCHER=true \
-ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS=http://+:5000 
 
-EXPOSE ${PORT}
+EXPOSE 5000
 
 ENTRYPOINT ["dotnet", "MyWebAPI.dll"]
 

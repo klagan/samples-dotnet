@@ -8,7 +8,7 @@ services:
       # args:
       #   - NUGET_UID
       #   - NUGET_PWD
-    image: ghcr.io/klagan/sample/mywebapi:1.0
+    image: ghcr.io/klagan/sample/webapi:1.0
     container_name: mywebapi
     restart: "no"
     ports:
@@ -24,21 +24,21 @@ services:
     #      source: ./override
     #      target: /app/override
     environment:
-    - ASPNETCORE_URLS=http://+:5000
     - DOTNET_USE_POLLING_FILE_WATCHER=true
     - ASPNETCORE_ENVIRONMENT=Development
     - DOCKER_IMAGE_VERSION=local image
 
-  myredoc:
-    image: redocly/redoc
-    container_name: myredoc
-    network_mode: host
-    restart: "no"
-    # ports are ignored when we set the network to host
-    environment:
-      - SPEC_URL=http://localhost:5000/swagger/v1/swagger.yaml
-      # kebab casing
-      # ref: https://github.com/Redocly/redoc#redoc-theme-object
-      # ref: https://stackoverflow.com/questions/52763862/how-to-add-option-in-redoc
-      - REDOC_OPTIONS=hide-download-button disable-search
+  # enable to run
+  # myredoc:
+  #   image: redocly/redoc
+  #   container_name: myredoc
+  #   network_mode: host
+  #   restart: "no"
+  #   # ports are ignored when we set the network to host
+  #   environment:
+  #     - SPEC_URL=http://localhost:5000/swagger/v1/swagger.yaml
+  #     # kebab casing
+  #     # ref: https://github.com/Redocly/redoc#redoc-theme-object
+  #     # ref: https://stackoverflow.com/questions/52763862/how-to-add-option-in-redoc
+  #     - REDOC_OPTIONS=hide-download-button disable-search
  
