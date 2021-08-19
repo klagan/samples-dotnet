@@ -33,20 +33,18 @@ RUN dotnet publish \
 RUN mkdir -p /app/publish/wwwroot/api-docs/v1/ 
 RUN cat .config/dotnet-tools.json   
 RUN dotnet swagger tofile --output /app/publish/wwwroot/api-docs/v1/openapi.yml /app/publish/MyWebAPI.dll v1 
-
-
 RUN apt-get update && apt-get install -y tree && tree
 
-FROM node:latest as swagger_build
+##################################################################################################
 
+FROM node:latest as swagger_build
 RUN apt-get update && \
     apt-get upgrade -y
 
 COPY --from=publish /app/publish/ /output
-
 RUN npx redoc-cli bundle --output /output/wwwroot/api-docs/v1/openapi.htm --title "Version 1.0.0"  --options.theme.colors.primary.main=blue /output/wwwroot/api-docs/v1/openapi.yml
 
-
+##################################################################################################
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1.10-bionic AS final
 
@@ -55,6 +53,8 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1.10-bionic AS final
 #     apt-get install -y apache2-utils && \
 #     apt-get install -y libgif-dev autoconf libtool automake build-essential gettext libglib2.0-dev libcairo2-dev libtiff-dev libexif-dev libgdiplus && \
 #     apt upgrade -y
+
+ARG PORT=5000
 
 RUN adduser \
   --disabled-password \
@@ -67,13 +67,15 @@ COPY --chown=app --from=swagger_build /output /app
 
 WORKDIR /app
 
-ENV ASPNETCORE_URLS=http://+:5000 \
+ENV ASPNETCORE_URLS=http://+:${PORT} \
 DOTNET_USE_POLLING_FILE_WATCHER=true \
 ASPNETCORE_ENVIRONMENT=Development
 
+EXPOSE ${PORT}
+
 ENTRYPOINT ["dotnet", "MyWebAPI.dll"]
 
-
+##################################################################################################
 
 # FROM scratch AS export
 # COPY --from=build /build/output/authorisation_tests.trx /
