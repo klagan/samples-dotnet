@@ -3,9 +3,9 @@ version: '3.7'
 services:
 
   kamtest:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
 #      args:
 #        - VersionPrefix=
 #        - VersionSuffix=local
