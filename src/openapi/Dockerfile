@@ -1,11 +1,14 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-focal AS build
 WORKDIR /src
+RUN curl https://api.nuget.org/v3/index.json -v
+
+
 COPY ["MyWebAPI/MyWebAPI.csproj", "MyWebAPI/"]
 COPY ["MyWeather.Models/MyWeather.Models.csproj", "MyWeather.Models/"]
 COPY ["MyWeather.Bll/MyWeather.Bll.csproj", "MyWeather.Bll/"]
 COPY ["MyUserName.Bll/MyUserName.Bll.csproj", "MyUserName.Bll/"]
 COPY ["OpenAPI.sln", "./"]
-RUN dotnet restore "/src/OpenAPI.sln"
+RUN dotnet restore --verbosity diag "/src/OpenAPI.sln"
 COPY . .
 RUN dotnet build "/src/OpenAPI.sln" -c Release -o /app/build
 
@@ -67,7 +70,7 @@ COPY --chown=app --from=swagger_build /output /app
 
 WORKDIR /app
 
-ENV ASPNETCORE_URLS=http://+:5000 
+ENV ASPNETCORE_URLS=http://*:5000 
 
 EXPOSE 5000
 
