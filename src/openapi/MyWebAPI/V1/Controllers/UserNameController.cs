@@ -4,6 +4,7 @@ namespace MyWebAPI.V1.Controllers
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using MyUserName.Bll;
+    using Models;
 
     [ApiController]
     [ApiVersion("1.0")]
@@ -30,6 +31,14 @@ namespace MyWebAPI.V1.Controllers
                                  string myCustomHeader)
         {
             return Ok(_userNameCompute.Get());
+        }
+
+        [HttpGet("TestCustomResponseCode")]
+        [ProducesResponseType(typeof(string), MyCustomStatusCode.ResponseCode)]
+        public IActionResult TestCustomResponseCode()
+        {
+            Response.Headers.Add("X-response-from-controller", "test123");
+            return  new MyCustomStatusCode("kaml sends his love and kisses!");
         }
     }
 }

@@ -1,6 +1,0 @@
-2021-06-17 08:22:42.307 +01:00 [Information] [Microsoft.Hosting.Lifetime] [3626431672] Now listening on: "https://localhost:5001"
-2021-06-17 08:22:42.310 +01:00 [Information] [Microsoft.Hosting.Lifetime] [3626431672] Now listening on: "http://localhost:5000"
-2021-06-17 08:22:42.310 +01:00 [Information] [Microsoft.Hosting.Lifetime] [3702455892] Application started. Press Ctrl+C to shut down.
-2021-06-17 08:22:42.310 +01:00 [Information] [Microsoft.Hosting.Lifetime] [3274734738] Hosting environment: "Development"
-2021-06-17 08:22:42.310 +01:00 [Information] [Microsoft.Hosting.Lifetime] [3050700834] Content root path: "/home/klagan/source/github/sample-dotnet/src/OpenAPI/MyWebAPI"
-2021-06-17 08:22:48.492 +01:00 [Warning] [MyWebAPI.V1.Controllers.WeatherForecastController] [2816766645] Im in the sample GET method
