@@ -5,10 +5,10 @@ namespace MyWebAPI.Models {
     using Microsoft.AspNetCore.Http.Features;
     using Microsoft.AspNetCore.Mvc;
 
-    public class MyCustomStatusCode : OkObjectResult {
+    public class MyCustomStatusCode : BadRequestObjectResult {
         private readonly string _myCustomResponseHeader;
 
-        public const int ResponseCode = StatusCodes.Status200OK;
+        public const int ResponseCode = StatusCodes.Status400BadRequest;
 
         public MyCustomStatusCode (string myCustomResponseHeader) 
             : base(ResponseCode) {

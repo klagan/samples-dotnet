@@ -40,5 +40,13 @@ namespace MyWebAPI.V1.Controllers
             Response.Headers.Add("X-response-from-controller", "test123");
             return  new MyCustomStatusCode("kaml sends his love and kisses!");
         }
+
+        [HttpGet("TestFailure")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public IActionResult TestFailure()
+        {
+            Response.Headers.Add("X-response-from-controller", "i failed :(");
+            return  new StatusCodeResult(StatusCodes.Status500InternalServerError);
+        }
     }
 }
