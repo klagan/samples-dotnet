@@ -12,7 +12,7 @@ services:
         source: ./src
         target: /src
       - type: bind
-        source: /home/klagan/.nuget
+        source: ${HOME}/.nuget
         target: /home/vscode/.nuget
     # stdin_open: true
     # tty: false
