@@ -1,0 +1,21 @@
+version: '3.2'
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    image: ghrc.io/klagan/build/net5.0
+    container_name: net5.0
+    restart: "no"
+    volumes:
+      - type: bind
+        source: ./src
+        target: /src
+      - type: bind
+        source: /home/klagan/.nuget
+        target: /home/vscode/.nuget
+    # stdin_open: true
+    # tty: false
+    user: vscode
+    environment:
+    - DOCKER_BUILDKIT=1
