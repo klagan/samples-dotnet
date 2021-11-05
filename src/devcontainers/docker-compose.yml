@@ -1,21 +1,39 @@
-version: '3.2'
+version: '3.7'
 services:
-  builder:
+
+  # use this for ad-hoc access to the environment from a terminal
+  environment:
     build:
       context: .
       dockerfile: .devcontainer/Dockerfile
-    image: ghrc.io/klagan/build/net5.0
+      target: ENVIRONMENT
+    image: ghrc.io/klagan/environment/net5.0
     container_name: net5.0
     restart: "no"
     volumes:
       - type: bind
-        source: ./src
-        target: /src
+        source: .
+        target: /source
       - type: bind
         source: ${HOME}/.nuget
         target: /home/vscode/.nuget
-    # stdin_open: true
-    # tty: false
     user: vscode
+    environment:
+    - DOCKER_BUILDKIT=1
+
+  # use this to build, run or pack the application
+  runner:
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+      target: RUNNER
+      args: 
+        DOTNET_SOLUTION: Samples.Sample.sln
+    image: ghrc.io/klagan/runner/net5.0
+    container_name: net5.0
+    restart: "no"
+    ports: 
+      - 5000:5000
+      - 5001:5001
     environment:
     - DOCKER_BUILDKIT=1

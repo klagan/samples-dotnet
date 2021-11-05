@@ -62,17 +62,90 @@ dotnet add package My.Private.Package --interactive
 dotnet restore --interactive
 ```
 
-## 4. Create a `docker-compose` file too
+## 4. Create a `docker-compose` file too!
 
-I also add a `docker-compose` file to mirror in the terminal what a `devcontainer` does in the IDE.  The idea is, that going forward I will be able to add new sections to the `docker-compose` file that will include the ability to run the service.  I also see there is provision for using `docker-compose` files as a `devcontainer`, but I haven't figured out how this works quite yet, so TBD!
+I also add a `docker-compose` file to mirror in the terminal what a `devcontainer` does in the IDE allowing for ad-hoc access from the terminal.
 
+> I see there is provision for using `docker-compose` files as a `devcontainer`, but I haven't figured out how this works quite yet, so TBD!
 > Note to self: remember to define the `user` in the `Dockerfile` and/or `docker-compose` else the container will not function correctly.
 
 To run the `docker-compose` container we run:
 
 ```dotnetcli
-docker run <serviceName> <shell>
+docker-compose run <serviceName> <shell>
 
-# e.g. docker run builder pwsh
-# e.g. docker run builder zsh
+# e.g. docker-compose run builder pwsh
+# e.g. docker-compose run builder zsh
 ```
+
+Once the prompt appears, you are located in the root of the filesystem and the source code - located on the host - is in the `/src` folder.  Below is an example of starting the container, navigating to the root source folder and building the solution:
+
+```bash
+klagan@ubuntu  ~/source/github/samples-dotnet/src/devcontainers   master ±  docker-compose run environment
+vscode ➜ / $ ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  source  srv  sys  tmp  usr  var  vscode
+vscode ➜ / $ cd source
+vscode ➜ /source $ ls
+README.md  Samples.Sample.sln  build  docker-compose.yml  src
+vscode ➜ /source $ dotnet build Samples.Sample.sln
+
+Welcome to .NET 5.0!
+---------------------
+SDK Version: 5.0.402
+
+Telemetry
+---------
+The .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.
+
+Read more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry
+
+----------------
+Installed an ASP.NET Core HTTPS development certificate.
+To trust the certificate run 'dotnet dev-certs https --trust' (Windows and macOS only).
+Learn about HTTPS: https://aka.ms/dotnet-https
+----------------
+Write your first app: https://aka.ms/dotnet-hello-world
+Find out what's new: https://aka.ms/dotnet-whats-new
+Explore documentation: https://aka.ms/dotnet-docs
+Report issues and find source on GitHub: https://github.com/dotnet/core
+Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+Microsoft (R) Build Engine version 16.11.1+3e40a09f8 for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Determining projects to restore...
+  Restored /source/src/Samples.WebApi/Samples.WebApi.csproj (in 146 ms).
+  Restored /source/src/Samples.Bll/Samples.Bll.csproj (in 146 ms).
+  Samples.WebApi -> /source/src/Samples.WebApi/bin/Debug/net5.0/Samples.WebApi.dll
+  Samples.Bll -> /source/src/Samples.Bll/bin/Debug/net5.0/Samples.Bll.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.39
+vscode ➜ /source $ 
+```
+
+There is also a `docker-compose` service for `runner` which will build, pack and run the application.  The main difference with the `runner` section and the `environment` is in the `build` section where we now include a solution file:
+
+```yaml
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+      target: RUNNER
+      args: 
+        DOTNET_SOLUTION: Samples.Sample.sln
+```
+
+The referenced `Dockerfile` is a reusable construct accepts the solution parameter for action on the generic `dotnet publish` command.
+
+The aim is to guide the developer to keep things simple by managing the code through a solution file which keeping the generic reuse of the underlying docker framework entact.
+
+The following command will build, package the image and run the application:
+
+```dotnetcli
+docker-compose up runner
+```
+
+When up you may check it is running by opening a browser and navigating to `http://localhost:5000/weatherforecast`

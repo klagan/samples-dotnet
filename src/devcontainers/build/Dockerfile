@@ -51,23 +51,26 @@ RUN   sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/dow
       && mkdir -p ${PWSHHOME}/.config/powershell/ ${PWSHUSER} \
       && echo "oh-my-posh --init --shell pwsh --config ${PWSHHOME}/.poshthemes/jandedobbeleer.omp.json | Invoke-Expression" > ${PWSHPROFILE}
 
-# FROM ENVIRONMENT AS BUILDER
-# ARG DOTNET_SOLUTION
-# COPY . /mysource
-# RUN  sudo mkdir /output
-# WORKDIR /mysource
+#==========================================================================================================================
+FROM ENVIRONMENT AS BUILDER
+ARG DOTNET_SOLUTION
+COPY . /mysource
+RUN  sudo mkdir /output
+WORKDIR /mysource
 
-# RUN if [ -f "$DOTNET_SOLUTION" ]; then sudo dotnet publish --configuration Release --output /output "$DOTNET_SOLUTION"; else echo "Solution not found" ; fi
+RUN if [ -f "$DOTNET_SOLUTION" ]; then sudo dotnet publish --configuration Release --output /output "$DOTNET_SOLUTION"; else echo "Solution not found" ; fi
 
+#==========================================================================================================================
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS RUNNER
+RUN groupadd -r basic && useradd --no-log-init -r -g basic apprunner
+USER apprunner
+COPY --chown=apprunner:basic --from=BUILDER /output /app
 
-# FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS RUNNER
-# COPY --from=BUILDER /output /
+ENV ASPNETCORE_URLS=http://+:5000 \
+DOTNET_USE_POLLING_FILE_WATCHER=true \
+ASPNETCORE_ENVIRONMENT=Development 
 
-# ENV ASPNETCORE_URLS=http://+:5000 \
-# DOTNET_USE_POLLING_FILE_WATCHER=true \
-# ASPNETCORE_ENVIRONMENT=Development 
+EXPOSE 5001
+EXPOSE 5000
 
-# EXPOSE 5001
-# EXPOSE 5000
-
-# ENTRYPOINT ["dotnet", "/Samples.WebApi.dll"]
+ENTRYPOINT ["dotnet", "/app/Samples.WebApi.dll"]
