@@ -62,7 +62,7 @@ dotnet add package My.Private.Package --interactive
 dotnet restore --interactive
 ```
 
-## 4. Create a `docker-compose` file too!
+## 4. Create a `docker-compose` file too
 
 I also add a `docker-compose` file to mirror in the terminal what a `devcontainer` does in the IDE allowing for ad-hoc access from the terminal.
 
@@ -95,7 +95,7 @@ SDK Version: 5.0.402
 
 Telemetry
 ---------
-The .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.
+The .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favourite shell.
 
 Read more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry
 
@@ -127,7 +127,7 @@ Time Elapsed 00:00:02.39
 vscode ➜ /source $ 
 ```
 
-There is also a `docker-compose` service for `runner` which will build, pack and run the application.  The main difference with the `runner` section and the `environment` is in the `build` section where we now include a solution file:
+There is also a `docker-compose` service for `runner` which will build, pack and run the application.  The main difference with the `runner` service and the `environment` service is in the `build` section where we now include a solution file:
 
 ```yaml
     build:
@@ -140,7 +140,7 @@ There is also a `docker-compose` service for `runner` which will build, pack and
 
 The referenced `Dockerfile` is a reusable construct accepts the solution parameter for action on the generic `dotnet publish` command.
 
-The aim is to guide the developer to keep things simple by managing the code through a solution file which keeping the generic reuse of the underlying docker framework entact.
+The aim is to guide the developer to keep things simple by managing the code through a solution file which keeping the generic reuse of the underlying docker framework intact.
 
 The following command will build, package the image and run the application:
 
