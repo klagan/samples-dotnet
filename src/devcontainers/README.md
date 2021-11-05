@@ -78,7 +78,7 @@ docker-compose run <serviceName> <shell>
 # e.g. docker-compose run builder zsh
 ```
 
-Once the prompt appears, you are located in the root of the filesystem and the source code - located on the host - is in the `/src` folder.  Below is an example of starting the container, navigating to the root source folder and building the solution:
+Once the prompt appears, you are located in the root of the filesystem and the source code - located on the host - is in the `/source` folder.  Below is an example of starting the container, navigating to the root source folder and building the solution:
 
 ```bash
 klagan@ubuntu  ~/source/github/samples-dotnet/src/devcontainers   master ±  docker-compose run environment

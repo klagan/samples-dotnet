@@ -8,7 +8,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
       target: ENVIRONMENT
     image: ghrc.io/klagan/environment/net5.0
-    container_name: net5.0
+    container_name: net5-sample-environment
     restart: "no"
     volumes:
       - type: bind
@@ -30,7 +30,7 @@ services:
       args: 
         DOTNET_SOLUTION: Samples.Sample.sln
     image: ghrc.io/klagan/runner/net5.0
-    container_name: net5.0
+    container_name: net5-sample-runner
     restart: "no"
     ports: 
       - 5000:5000
