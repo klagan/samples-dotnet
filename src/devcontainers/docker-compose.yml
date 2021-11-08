@@ -26,14 +26,14 @@ services:
     build:
       context: .
       dockerfile: build/Dockerfile
-      target: RUNNER
+      target: final
       args: 
         DOTNET_SOLUTION: Samples.Sample.sln
     image: ghcr.io/klagan/runner/net5.0
     container_name: net5-sample-runner
     restart: "no"
     ports: 
-      - 5000:5000
+      - 8000:5000 # sometimes port 5000 is taken, so use a different port.  here I changed to 8000
       - 5001:5001
     environment:
     - DOCKER_BUILDKIT=1
