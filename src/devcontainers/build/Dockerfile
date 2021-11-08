@@ -1,5 +1,5 @@
 #==========================================================================================================================
-FROM ghcr.io/klagan/net5:1.0 AS base
+FROM ghcr.io/klagan/dotnet/runtime:5.0 AS base
 RUN groupadd -r basic && useradd --no-log-init -r -g basic apprunner
 USER apprunner
 
@@ -10,7 +10,7 @@ ASPNETCORE_ENVIRONMENT=Development
 EXPOSE 5001
 EXPOSE 5000
 #==========================================================================================================================
-FROM ghcr.io/klagan/net5:1.0 AS builder
+FROM ghcr.io/klagan/dotnet/sdk:5.0 AS builder
 ARG DOTNET_SOLUTION
 ARG BUILD_OUTPUT="/build"
 RUN  sudo mkdir -p /output
