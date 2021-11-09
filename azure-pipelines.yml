@@ -1,0 +1,40 @@
+name: 5.0$(rev:.r)
+
+parameters:
+  - name: AgentName
+    displayName: "Agent Name"
+    type: string
+    default: 'Azure Pipelines'
+    values:
+    - 'Azure Pipelines'
+  - name: DockerRegistry
+    displayName: "Docker Service Connection"
+    default: 'my-registry'
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - main
+      - feature/*
+      - develop/*
+      - task/*
+      - hotfix/*
+    exclude:
+      - kam/*
+  paths:
+    exclude: 
+      - 'README.md'  
+
+variables:
+- name: imageName
+  value: 'klagan/dotnet/sdk'
+- name: dockerFile
+  value: samples-dotnet/src/devcontainers/build/Dockerfile
+
+stages:
+- template: ../../common/azure-pipelines.yml
+  parameters:
+    DockerRegistry: ${{ parameters.DockerRegistry }}
+    ImageName: $(imageName)
+    DockerFile: $(dockerFile)
