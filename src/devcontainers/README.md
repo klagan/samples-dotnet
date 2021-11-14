@@ -1,5 +1,7 @@
 # Getting started
 
+[source](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile)
+
 Remote containers are a nice way of isolating environments for development.  They allow a developer to run inside a pre-configured container which is detailed in a manifest (dockerfile).  This can be taken a step further by having the containers activate on remote servers over SSH.  This means that the source code doesn't even touch your machine but is instead being **puppeted** on a remote server in a remote container.
 
 Taking this a step further we can reuse the same container to build locally and in the CI/CD pipeline and thereby offering full transparency and autonomy to a developer in configuring builds.
@@ -148,4 +150,22 @@ The following command will build, package the image and run the application:
 docker-compose up runner
 ```
 
-When up you may check it is running by opening a browser and navigating to `http://localhost:5000/weatherforecast`
+When the service is up you may check it is running by opening a browser and navigating to `http://localhost:5000/weatherforecast`
+
+## Troubleshooting
+
+### 401 - Unauthorised
+
+Sometimes the nuget tokens will expire and need revalidation.  This is done by adding or restoring with `--interactive` switch.  There are other ways using credential managers and the like but this is the simplest.
+
+```
+# add a package from a private nuget source
+dotnet add package Aprexo.Authentication.Common --interactive      
+
+# restore packages from private nuget sources
+dotnet restore --interactive
+```
+
+### Match docker-compose launch with .devcontainer launch
+
+I had issues getting the docker-compose file to behave the same as the .devcontainer.  This was because the docker-compose file was not running in the same context.  I needed to run in the context of the `vscode` user.  This is done by adding: `user: vscode` in the docker-compose configuration.
