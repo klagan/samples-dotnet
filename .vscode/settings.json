@@ -6,8 +6,10 @@
         }
     },
     "cSpell.words": [
+        "certbot",
         "devcontainer",
         "dotnetcli",
+        "NGNIX",
         "puppeted",
         "USERPROFILE"
     ]
