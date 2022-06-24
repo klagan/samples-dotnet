@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+    <NuspecFile>sample.library.nuspec</NuspecFile>		
+    <NuspecProperties>version=$(PackageVersion)</NuspecProperties>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <DebugType>embedded</DebugType>
+    <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true'">True</ContinuousIntegrationBuild>
+    <PackageTags>kam;sample;</PackageTags>
+    <Description>
+      This is a sample project
+    </Description>
+  </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DotNet.ReproducibleBuilds" Version="0.1.66">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1" PrivateAssets="all" />
+    </ItemGroup>
+
+    <PropertyGroup>
+      <Authors>Kam Lagan</Authors>
+      <PackageIcon>icon.png</PackageIcon>
+      <PackageReadmeFile>readme.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="" Visible="false" />
+      <None Include="$(MSBuildThisFileDirectory)\readme.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+</Project>

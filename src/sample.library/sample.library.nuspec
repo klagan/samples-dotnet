@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>sample.library</id>
+    <title>title</title>
+    <version>1.0.0</version>
+    <authors>author</authors>
+    <owners>owner</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>description</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2022</copyright>
+    <tags>$tags$</tags>
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="bin/Debug/net6.0/*.*" target="lib/net6.0/" />
+  </files>
+</package>
